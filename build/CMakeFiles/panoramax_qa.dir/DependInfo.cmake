@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/comictor2ro/Desktop/panoramax_qa/src/cli/args.cpp" "CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o.d"
+  "/home/comictor2ro/Desktop/panoramax_qa/src/image/exif_parser.cpp" "CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o.d"
+  "/home/comictor2ro/Desktop/panoramax_qa/src/image/scanner.cpp" "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o.d"
   "/home/comictor2ro/Desktop/panoramax_qa/src/main.cpp" "CMakeFiles/panoramax_qa.dir/src/main.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/main.cpp.o.d"
   )
 

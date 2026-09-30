@@ -153,6 +153,54 @@ src/cli/args.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.s
 .PHONY : src/cli/args.cpp.s
 
+src/image/exif_parser.o: src/image/exif_parser.cpp.o
+.PHONY : src/image/exif_parser.o
+
+# target to build an object file
+src/image/exif_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o
+.PHONY : src/image/exif_parser.cpp.o
+
+src/image/exif_parser.i: src/image/exif_parser.cpp.i
+.PHONY : src/image/exif_parser.i
+
+# target to preprocess a source file
+src/image/exif_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.i
+.PHONY : src/image/exif_parser.cpp.i
+
+src/image/exif_parser.s: src/image/exif_parser.cpp.s
+.PHONY : src/image/exif_parser.s
+
+# target to generate assembly for a file
+src/image/exif_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.s
+.PHONY : src/image/exif_parser.cpp.s
+
+src/image/scanner.o: src/image/scanner.cpp.o
+.PHONY : src/image/scanner.o
+
+# target to build an object file
+src/image/scanner.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o
+.PHONY : src/image/scanner.cpp.o
+
+src/image/scanner.i: src/image/scanner.cpp.i
+.PHONY : src/image/scanner.i
+
+# target to preprocess a source file
+src/image/scanner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.i
+.PHONY : src/image/scanner.cpp.i
+
+src/image/scanner.s: src/image/scanner.cpp.s
+.PHONY : src/image/scanner.s
+
+# target to generate assembly for a file
+src/image/scanner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.s
+.PHONY : src/image/scanner.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -189,6 +237,12 @@ help:
 	@echo "... src/cli/args.o"
 	@echo "... src/cli/args.i"
 	@echo "... src/cli/args.s"
+	@echo "... src/image/exif_parser.o"
+	@echo "... src/image/exif_parser.i"
+	@echo "... src/image/exif_parser.s"
+	@echo "... src/image/scanner.o"
+	@echo "... src/image/scanner.i"
+	@echo "... src/image/scanner.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

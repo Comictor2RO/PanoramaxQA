@@ -456,4 +456,6 @@ CMakeFiles/panoramax_qa.dir/src/main.cpp.o: \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
- /home/comictor2ro/Desktop/panoramax_qa/includes/cli/args.hpp
+ /home/comictor2ro/Desktop/panoramax_qa/includes/cli/args.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/includes/image/scanner.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/includes/image/metadata.hpp

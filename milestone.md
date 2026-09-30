@@ -24,13 +24,15 @@ panoramax_qa/
 │   │   └── args.hpp
 │   └── image/
 │       ├── metadata.hpp
-│       └── exif_parser.hpp
+│       ├── exif_parser.hpp
+│       └── scanner.hpp
 ├── src/
 │   ├── main.cpp
 │   ├── cli/
 │   │   └── args.cpp
 │   └── image/
-│       └── exif_parser.cpp
+│       ├── exif_parser.cpp
+│       └── scanner.cpp
 └── build/
 ```
 
@@ -40,7 +42,7 @@ panoramax_qa/
 - CMake detectează nlohmann/json.
 - CLI11 este inclus și link-uit prin target-ul `CLI11::CLI11`.
 - Exiv2 este declarat ca dependență.
-- `src/main.cpp`, `src/cli/args.cpp` și `src/image/exif_parser.cpp` sunt incluse în executabil.
+- `src/main.cpp`, `src/cli/args.cpp`, `src/image/exif_parser.cpp` și `src/image/scanner.cpp` sunt incluse în executabil.
 - Directorul `includes/` este disponibil pentru includerea headerelor proiectului.
 - Proiectul se configurează și se compilează cu succes.
 
@@ -63,12 +65,14 @@ Este definită structura `CliArgs` în `includes/cli/args.hpp`.
 
 Câmpurile existente sunt:
 
-- `input_file` — folderul cu imaginile.
+- `input_directory` — folderul cu imaginile.
 - `threshold_blur` — pragul pentru blur.
 - `threshold_brightness` — pragul pentru brightness.
 - `max_gps_jump_meters` — saltul GPS maxim acceptat.
 - `report_path` — calea raportului JSON.
 - `do_upload` — activează sau dezactivează upload-ul.
+- `verbose` — activează afișarea detaliată.
+- `quiet` — suprimă output-ul normal.
 - `token_path` — calea către token-ul Panoramax.
 - `api_base_url` — URL-ul de bază al API-ului Panoramax.
 
@@ -81,8 +85,14 @@ Câmpurile existente sunt:
 - opțiunea `--jump` / `-j` cu `CLI::PositiveNumber`;
 - opțiunea `--report` / `-r`;
 - flag-ul `--upload` / `-u`;
+- flag-ul `--verbose`;
+- flag-ul `--quiet`;
+- flag-ul `--version`;
 - opțiunea `--token` / `-t`;
 - opțiunea `--api` / `-a`;
+- expandarea căilor care încep cu `~` pentru token;
+- validarea faptului că tokenul poate fi deschis atunci când upload-ul este activat;
+- respingerea folosirii simultane a `--verbose` și `--quiet`;
 - afișarea automată a help-ului și a erorilor de parsing.
 
 Exemplu de rulare:
@@ -114,7 +124,7 @@ Structura conține câmpuri pentru:
 - lățime și înălțime;
 - starea `is_valid`.
 
-### Începutul EXIF parsing-ului
+### EXIF și XMP parsing
 
 Este declarată funcția:
 
@@ -122,26 +132,67 @@ Este declarată funcția:
 ImageMetadata parseExif(const std::string& image_path);
 ```
 
-Funcția este destinată să:
+Funcția implementează:
 
 - deschidă o imagine cu Exiv2;
 - citească metadata prin `readMetadata()`;
 - acceseze `ExifData`;
-- caute tag-urile GPS;
-- marcheze metadata ca invalidă dacă informațiile esențiale lipsesc;
-- gestioneze erorile Exiv2 fără să oprească întreaga aplicație.
+- verifice tag-urile GPS esențiale;
+- convertească coordonatele GPS din grade, minute și secunde în grade zecimale;
+- aplice referințele `N`, `S`, `E` și `W`;
+- citească altitudinea și referința altitudinii;
+- citească GPSDOP;
+- citească heading-ul cu fallback de la `GPSImgDirection` la `GPSTrack`;
+- parseze timestamp-ul `DateTimeOriginal`;
+- citească lățimea și înălțimea din EXIF;
+- gestioneze erorile Exiv2 fără oprirea procesării celorlalte imagini;
+- citească opțional pitch-ul și roll-ul din XMP;
+- marcheze metadata ca validă atunci când GPS-ul și timestamp-ul sunt valide.
+
+Parsarea XMP este opțională. Un namespace XMP necunoscut, cum este `Camera`, nu trebuie să oprească parsarea EXIF.
+
+Parserul a fost testat cu o imagine care conține GPS, altitudine, heading și timestamp. Rezultatul obținut a fost:
+
+```text
+valid: true
+latitude: 44.4268
+longitude: 26.1025
+altitude: 80
+heading: 135
+```
+
+### Scanarea folderului
+
+Este implementată funcția:
+
+```cpp
+std::vector<ImageMetadata> scanImage(const std::string& input_directory);
+```
+
+Scannerul:
+
+- folosește `std::filesystem::directory_iterator`;
+- nu procesează subdirectoare;
+- acceptă extensiile `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff` și `.webp`;
+- tratează extensiile fără diferență între litere mari și mici;
+- sortează căile într-o ordine deterministă;
+- apelează `parseExif()` pentru fiecare imagine;
+- returnează rezultatele într-un `std::vector<ImageMetadata>`.
+
+### Integrarea curentă în `main.cpp`
+
+`main.cpp`:
+
+- parsează argumentele CLI;
+- apelează scannerul pentru folderul primit;
+- afișează numărul imaginilor găsite;
+- afișează metadata detaliată cu `--verbose`;
+- tratează erorile prin mesaje pe `stderr` și cod de ieșire nenul.
 
 ## Neimplementat încă
 
-- Scanarea tuturor imaginilor din folder.
-- Filtrarea fișierelor după extensii (`.jpg`, `.jpeg`, `.png` etc.).
-- Conversia completă a coordonatelor GPS în grade zecimale.
-- Citirea referințelor GPS `N/S/E/W`.
-- Citirea altitudinii.
-- Citirea GPSDOP sau a erorii de poziționare.
-- Citirea heading-ului, pitch-ului și roll-ului.
-- Parsarea timestamp-ului EXIF.
-- Citirea rezoluției imaginii din OpenCV sau EXIF.
+- Tratarea tuturor namespace-urilor XMP specifice producătorilor de camere.
+- Citirea rezoluției din OpenCV ca fallback atunci când EXIF nu conține dimensiunile.
 - Structura `ImageQA`.
 - Calcularea blurului.
 - Calcularea brightness-ului.
@@ -163,7 +214,9 @@ Funcția este destinată să:
 
 ## Pașii următori
 
-### Milestone 1 — Finalizarea CLI-ului
+### Milestone 1 — Finalizat: CLI
+
+CLI-ul a fost implementat și testat pentru help, version, input, praguri, upload, token, verbose și quiet.
 
 1. Verifică faptul că `args.cpp` este inclus în `add_executable()`.
 2. Compilează proiectul.
@@ -181,7 +234,9 @@ cmake --build build
 ./build/panoramax_qa --help
 ```
 
-### Milestone 2 — EXIF parsing pentru o singură imagine
+### Milestone 2 — Finalizat: EXIF parsing pentru o singură imagine
+
+Parserul a fost testat cu imagini fără GPS și cu o imagine de test căreia i-au fost adăugate metadata GPS cu ExifTool.
 
 1. Implementează deschiderea imaginii cu `Exiv2::ImageFactory::open()`.
 2. Apelează `readMetadata()`.
@@ -194,7 +249,9 @@ cmake --build build
 9. Citește timestamp-ul și dimensiunile.
 10. Testează imagini cu metadata completă și imagini fără GPS.
 
-### Milestone 3 — Scanarea folderului
+### Milestone 3 — Finalizat: scanarea folderului
+
+Scannerul a fost testat pe un folder cu imagini JPEG și PNG, inclusiv extensii cu litere mari.
 
 1. Folosește `std::filesystem` pentru parcurgerea folderului.
 2. Acceptă doar extensii de imagine suportate.

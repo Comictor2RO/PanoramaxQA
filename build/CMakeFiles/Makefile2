@@ -81,12 +81,12 @@ clean: CMakeFiles/panoramax_qa.dir/clean
 CMakeFiles/panoramax_qa.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=1,2,3 "Built target panoramax_qa"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target panoramax_qa"
 .PHONY : CMakeFiles/panoramax_qa.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/panoramax_qa.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/panoramax_qa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
 .PHONY : CMakeFiles/panoramax_qa.dir/rule

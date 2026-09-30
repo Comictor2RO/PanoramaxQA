@@ -15,6 +15,7 @@ add_executable(panoramax_qa
     src/main.cpp
     src/cli/args.cpp
     src/image/exif_parser.cpp
+    src/image/scanner.cpp
 )
 target_link_libraries(panoramax_qa
     PRIVATE

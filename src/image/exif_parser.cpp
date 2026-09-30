@@ -26,14 +26,19 @@ namespace {
 
     // Helper funciton to get pitch and roll from XMP Data
     void parseXMP(const Exiv2::XmpData& xmp_data, ImageMetadata& metadata){
-        const auto pitch = xmp_data.findKey(Exiv2::XmpKey("Xmp.Camera.Pitch"));
-        if(pitch != xmp_data.end()){
-            metadata.pitch = pitch->toFloat();
-        }
+        try{
+            const auto pitch = xmp_data.findKey(Exiv2::XmpKey("Xmp.Camera.Pitch"));
+            if(pitch != xmp_data.end()){
+                metadata.pitch = pitch->toFloat();
+            }
 
-        const auto roll = xmp_data.findKey(Exiv2::XmpKey("Xmp.Camera.Roll"));
-        if(roll != xmp_data.end()){
-            metadata.roll = roll->toFloat();
+            const auto roll = xmp_data.findKey(Exiv2::XmpKey("Xmp.Camera.Roll"));
+            if(roll != xmp_data.end()){
+                metadata.roll = roll->toFloat();
+            }
+        }
+        catch (const Exiv2::Error&){
+
         }
     }
 }
@@ -78,17 +83,18 @@ ImageMetadata parseExif(const std::string& image_path){
         const std::string lat_ref = latitude_ref->toString();
         const std::string lon_ref = longitude_ref->toString();
 
-        if(lat_ref == "S") {
+
+        if(lat_ref == "S" || lat_ref == "South") {
             metadata.latitude = -metadata.latitude;
         }
-        else if(lat_ref != "N") {
+        else if(lat_ref != "N" && lat_ref != "North") {
             return metadata;
         }
 
-        if(lon_ref == "W") {
+        if(lon_ref == "W" || lon_ref == "West") {
             metadata.longitude = -metadata.longitude;
         }
-        else if(lon_ref != "E") {
+        else if(lon_ref != "E" && lon_ref != "East") {
             return metadata;
         }
 
@@ -151,7 +157,8 @@ ImageMetadata parseExif(const std::string& image_path){
 
         metadata.is_valid = has_timestamp;
     }
-    catch(const Exiv2::Error&) {
+    catch(const Exiv2::Error& error) {
+        std::cerr << "Exiv2 error for " << image_path << ": " << error.what() << '\n';
         metadata.is_valid = false;
     }
 

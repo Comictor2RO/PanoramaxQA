@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o"
   "CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o.d"
+  "CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o"
+  "CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o.d"
+  "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o"
+  "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o.d"
   "CMakeFiles/panoramax_qa.dir/src/main.cpp.o"
   "CMakeFiles/panoramax_qa.dir/src/main.cpp.o.d"
   "panoramax_qa"
