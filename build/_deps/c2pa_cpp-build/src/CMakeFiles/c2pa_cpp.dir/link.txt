@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -Wl,-z,relro -Wl,-z,now -shared -Wl,-soname,libc2pa_cpp.so -o libc2pa_cpp.so CMakeFiles/c2pa_cpp.dir/c2pa.cpp.o   -L/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/lib  -Wl,-rpath,/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/lib: -lc2pa_c 

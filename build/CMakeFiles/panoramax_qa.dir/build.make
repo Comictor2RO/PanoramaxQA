@@ -125,12 +125,42 @@ CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/comictor2ro/Desktop/panoramax_qa/src/image/scanner.cpp -o CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.s
 
+CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o: CMakeFiles/panoramax_qa.dir/flags.make
+CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o: /home/comictor2ro/Desktop/panoramax_qa/src/ai/c2pa_detector.cpp
+CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o: CMakeFiles/panoramax_qa.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o -MF CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o.d -o CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/ai/c2pa_detector.cpp
+
+CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/comictor2ro/Desktop/panoramax_qa/src/ai/c2pa_detector.cpp > CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.i
+
+CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/comictor2ro/Desktop/panoramax_qa/src/ai/c2pa_detector.cpp -o CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.s
+
+CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o: CMakeFiles/panoramax_qa.dir/flags.make
+CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o: /home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp
+CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o: CMakeFiles/panoramax_qa.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o -MF CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o.d -o CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp
+
+CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp > CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.i
+
+CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp -o CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.s
+
 # Object files for target panoramax_qa
 panoramax_qa_OBJECTS = \
 "CMakeFiles/panoramax_qa.dir/src/main.cpp.o" \
 "CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o" \
 "CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o" \
-"CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o"
+"CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o" \
+"CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o" \
+"CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o"
 
 # External object files for target panoramax_qa
 panoramax_qa_EXTERNAL_OBJECTS =
@@ -139,6 +169,8 @@ panoramax_qa: CMakeFiles/panoramax_qa.dir/src/main.cpp.o
 panoramax_qa: CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o
 panoramax_qa: CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o
 panoramax_qa: CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o
+panoramax_qa: CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o
+panoramax_qa: CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o
 panoramax_qa: CMakeFiles/panoramax_qa.dir/build.make
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_alphamat.so.4.6.0
@@ -176,6 +208,7 @@ panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_wechat_qrcode.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.6.0
+panoramax_qa: _deps/c2pa_cpp-build/src/libc2pa_cpp.so
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.6.0
@@ -196,7 +229,7 @@ panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.6.0
 panoramax_qa: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.6.0
 panoramax_qa: CMakeFiles/panoramax_qa.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable panoramax_qa"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable panoramax_qa"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/panoramax_qa.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

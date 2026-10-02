@@ -1,0 +1,7 @@
+c2pa_core.cpp
+c2pa_context.cpp
+c2pa_builder.cpp
+c2pa_reader.cpp
+c2pa_settings.cpp
+c2pa_signer.cpp
+c2pa_streams.cpp

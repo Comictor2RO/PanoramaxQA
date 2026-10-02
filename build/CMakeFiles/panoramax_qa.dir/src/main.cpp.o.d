@@ -277,10 +277,11 @@ CMakeFiles/panoramax_qa.dir/src/main.cpp.o: \
  /usr/include/c++/13/pstl/glue_numeric_defs.h \
  /usr/include/CLI/impl/App_inl.hpp /usr/include/CLI/Config.hpp \
  /usr/include/CLI/impl/Config_inl.hpp /usr/include/CLI/Formatter.hpp \
- /usr/include/CLI/impl/Formatter_inl.hpp /usr/include/nlohmann/json.hpp \
- /usr/include/nlohmann/adl_serializer.hpp \
- /usr/include/nlohmann/detail/abi_macros.hpp \
- /usr/include/nlohmann/detail/conversions/from_json.hpp \
+ /usr/include/CLI/impl/Formatter_inl.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/json.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/adl_serializer.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/abi_macros.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/conversions/from_json.hpp \
  /usr/include/c++/13/forward_list /usr/include/c++/13/bits/forward_list.h \
  /usr/include/c++/13/bits/forward_list.tcc /usr/include/c++/13/valarray \
  /usr/include/c++/13/bits/valarray_array.h \
@@ -292,50 +293,52 @@ CMakeFiles/panoramax_qa.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/gslice_array.h \
  /usr/include/c++/13/bits/mask_array.h \
  /usr/include/c++/13/bits/indirect_array.h \
- /usr/include/nlohmann/detail/exceptions.hpp \
- /usr/include/nlohmann/detail/value_t.hpp \
- /usr/include/nlohmann/detail/macro_scope.hpp \
- /usr/include/nlohmann/detail/meta/detected.hpp \
- /usr/include/nlohmann/detail/meta/void_t.hpp \
- /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/exceptions.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/value_t.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/macro_scope.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/detected.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/void_t.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/thirdparty/hedley/hedley.hpp \
  /usr/include/c++/13/version /usr/include/c++/13/cassert \
- /usr/include/assert.h /usr/include/nlohmann/detail/string_escape.hpp \
- /usr/include/nlohmann/detail/input/position_t.hpp \
- /usr/include/nlohmann/detail/meta/cpp_future.hpp \
- /usr/include/nlohmann/detail/meta/type_traits.hpp \
- /usr/include/nlohmann/detail/iterators/iterator_traits.hpp \
- /usr/include/nlohmann/detail/meta/call_std/begin.hpp \
- /usr/include/nlohmann/detail/meta/call_std/end.hpp \
- /usr/include/nlohmann/json_fwd.hpp \
- /usr/include/nlohmann/detail/string_concat.hpp \
- /usr/include/nlohmann/detail/meta/identity_tag.hpp \
- /usr/include/nlohmann/detail/meta/std_fs.hpp \
- /usr/include/nlohmann/detail/conversions/to_json.hpp \
- /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+ /usr/include/assert.h \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/string_escape.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/input/position_t.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/cpp_future.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/type_traits.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/iterators/iterator_traits.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/call_std/begin.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/call_std/end.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/json_fwd.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/string_concat.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/identity_tag.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/std_fs.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/conversions/to_json.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/iterators/iteration_proxy.hpp \
  /usr/include/c++/13/ranges /usr/include/c++/13/span \
  /usr/include/c++/13/variant \
- /usr/include/nlohmann/byte_container_with_subtype.hpp \
- /usr/include/nlohmann/detail/hash.hpp \
- /usr/include/nlohmann/detail/input/binary_reader.hpp \
- /usr/include/nlohmann/detail/input/input_adapters.hpp \
- /usr/include/nlohmann/detail/input/json_sax.hpp \
- /usr/include/nlohmann/detail/input/lexer.hpp \
- /usr/include/nlohmann/detail/meta/is_sax.hpp \
- /usr/include/nlohmann/detail/input/parser.hpp \
- /usr/include/nlohmann/detail/iterators/internal_iterator.hpp \
- /usr/include/nlohmann/detail/iterators/primitive_iterator.hpp \
- /usr/include/nlohmann/detail/iterators/iter_impl.hpp \
- /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
- /usr/include/nlohmann/detail/json_custom_base_class.hpp \
- /usr/include/nlohmann/detail/json_pointer.hpp \
- /usr/include/nlohmann/detail/json_ref.hpp \
- /usr/include/nlohmann/detail/output/binary_writer.hpp \
- /usr/include/nlohmann/detail/output/output_adapters.hpp \
- /usr/include/nlohmann/detail/output/serializer.hpp \
- /usr/include/nlohmann/detail/conversions/to_chars.hpp \
- /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/13/any \
- /usr/include/nlohmann/detail/macro_unscope.hpp \
- /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/byte_container_with_subtype.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/hash.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/input/binary_reader.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/input/input_adapters.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/input/json_sax.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/meta/is_sax.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/input/parser.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/iterators/internal_iterator.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/iterators/iter_impl.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/json_custom_base_class.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/json_pointer.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/json_ref.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/output/binary_writer.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/output/output_adapters.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/output/serializer.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/conversions/to_chars.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/ordered_map.hpp \
+ /usr/include/c++/13/any \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/detail/macro_unscope.hpp \
+ /home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /usr/include/opencv4/opencv2/opencv.hpp \
  /usr/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/include/opencv4/opencv2/core.hpp \
@@ -456,6 +459,9 @@ CMakeFiles/panoramax_qa.dir/src/main.cpp.o: \
  /usr/include/opencv4/opencv2/video.hpp \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
+ /usr/include/opencv4/opencv2/core.hpp \
+ /usr/include/opencv4/opencv2/imgcodecs.hpp \
+ /usr/include/opencv4/opencv2/highgui.hpp \
  /home/comictor2ro/Desktop/panoramax_qa/includes/cli/args.hpp \
  /home/comictor2ro/Desktop/panoramax_qa/includes/image/scanner.hpp \
  /home/comictor2ro/Desktop/panoramax_qa/includes/image/metadata.hpp

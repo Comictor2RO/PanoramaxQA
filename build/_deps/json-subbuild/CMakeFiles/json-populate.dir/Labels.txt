@@ -1,0 +1,14 @@
+# Target labels
+ json-populate
+# Source files and their labels
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/CMakeFiles/json-populate
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/CMakeFiles/json-populate.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/CMakeFiles/json-populate-complete.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-build.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-configure.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-download.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-install.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-mkdir.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-patch.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-test.rule
+/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-subbuild/json-populate-prefix/src/json-populate-stamp/json-populate-update.rule

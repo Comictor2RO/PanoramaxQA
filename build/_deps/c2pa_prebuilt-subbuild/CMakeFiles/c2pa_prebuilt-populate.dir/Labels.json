@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/CMakeFiles/c2pa_prebuilt-populate"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/CMakeFiles/c2pa_prebuilt-populate.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/CMakeFiles/c2pa_prebuilt-populate-complete.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-build.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-configure.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-download.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-install.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-patch.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-test.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/c2pa_prebuilt-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"c2pa_prebuilt-populate"
+		],
+		"name" : "c2pa_prebuilt-populate"
+	}
+}

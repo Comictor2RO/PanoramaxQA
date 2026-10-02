@@ -1,0 +1,12 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=url
+command=/usr/bin/cmake;-P;/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/download-c2pa_prebuilt-populate.cmake;COMMAND;/usr/bin/cmake;-P;/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/verify-c2pa_prebuilt-populate.cmake;COMMAND;/usr/bin/cmake;-P;/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-subbuild/c2pa_prebuilt-populate-prefix/src/c2pa_prebuilt-populate-stamp/extract-c2pa_prebuilt-populate.cmake
+source_dir=/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src
+work_dir=/home/comictor2ro/Desktop/panoramax_qa/build/_deps
+url(s)=https://github.com/contentauth/c2pa-rs/releases/download/c2pa-v0.91.0/c2pa-v0.91.0-x86_64-unknown-linux-gnu.zip
+hash=
+no_extract=
+

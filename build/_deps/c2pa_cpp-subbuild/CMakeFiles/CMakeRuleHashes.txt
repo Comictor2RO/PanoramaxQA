@@ -1,0 +1,11 @@
+# Hashes of file build rules.
+943720468b3732ac4cb9b3b43dc0f260 CMakeFiles/c2pa_cpp-populate
+b6bbf651d40d8746016ea93e4105f514 CMakeFiles/c2pa_cpp-populate-complete
+fc8f02a119d4529213a07726c65ffabe c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-build
+fd922cc460b9ff91a497de2558cde181 c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-configure
+cda9cfb98ef4867fd2352e2f0fde654c c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-download
+6e967fdbca129b52acf6c8e548dbd198 c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-install
+e69982b8d9024fc91b626baa1606f74b c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-mkdir
+e4b3218bda458120c36fdffa1edb3487 c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-patch
+a32e6ba5678c02035b95d2c229ad3b01 c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-test
+df64de5f90f93497b90addc9c6ef8333 c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-update

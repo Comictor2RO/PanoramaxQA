@@ -22,10 +22,14 @@ panoramax_qa/
 ├── includes/
 │   ├── cli/
 │   │   └── args.hpp
-│   └── image/
+│   ├── image/
 │       ├── metadata.hpp
 │       ├── exif_parser.hpp
 │       └── scanner.hpp
+│   └── ai/
+│       └── c2pa_detector.hpp
+│   └── qa/
+│       └── image_qa.hpp
 ├── src/
 │   ├── main.cpp
 │   ├── cli/
@@ -33,6 +37,10 @@ panoramax_qa/
 │   └── image/
 │       ├── exif_parser.cpp
 │       └── scanner.cpp
+│   └── ai/
+│       └── c2pa_detector.cpp
+│   └── qa/
+│       └── image_qa.cpp
 └── build/
 ```
 
@@ -42,7 +50,8 @@ panoramax_qa/
 - CMake detectează nlohmann/json.
 - CLI11 este inclus și link-uit prin target-ul `CLI11::CLI11`.
 - Exiv2 este declarat ca dependență.
-- `src/main.cpp`, `src/cli/args.cpp`, `src/image/exif_parser.cpp` și `src/image/scanner.cpp` sunt incluse în executabil.
+- C2PA este descarcat prin `FetchContent` si link-uit prin target-ul `c2pa_cpp`.
+- `src/main.cpp`, `src/cli/args.cpp`, `src/image/exif_parser.cpp`, `src/image/scanner.cpp` si `src/ai/c2pa_detector.cpp` sunt incluse in executabil.
 - Directorul `includes/` este disponibil pentru includerea headerelor proiectului.
 - Proiectul se configurează și se compilează cu succes.
 
@@ -123,6 +132,9 @@ Structura conține câmpuri pentru:
 - timestamp;
 - lățime și înălțime;
 - starea `is_valid`.
+- verdictul detectiei AI;
+- confidence-ul detectiei AI;
+- indicatorii detectiei AI.
 
 ### EXIF și XMP parsing
 
@@ -179,6 +191,55 @@ Scannerul:
 - apelează `parseExif()` pentru fiecare imagine;
 - returnează rezultatele într-un `std::vector<ImageMetadata>`.
 
+### Detectarea imaginilor generate cu AI
+
+Este implementat detectorul C2PA în `src/ai/c2pa_detector.cpp`.
+
+Detectorul:
+
+- deschide manifestul C2PA folosind `c2pa::Reader::from_asset()`;
+- citește manifestul ca JSON;
+- caută provideri și acțiuni care indică generare AI;
+- recunoaște identificatori precum `BytePlus_ModelArk`, Midjourney, DALL-E, Stable Diffusion, Firefly, ComfyUI și Ideogram;
+- păstrează indicatorii în `ai_indicators`;
+- combină rezultatul C2PA cu fallback-ul EXIF/XMP.
+
+Verdicturile disponibile sunt:
+
+- `confirmed` — manifest C2PA cu indicații AI și fără erori de validare;
+- `likely` — marker AI găsit în EXIF/XMP sau manifest C2PA cu validare incompletă;
+- `not_detected` — nu există marker AI, iar imaginea are metadata coerentă de cameră;
+- `unknown` — nu există suficiente metadata pentru o concluzie.
+
+Verdicturile sunt bazate pe metadata și provenance. Lipsa unui marker AI nu dovedește că imaginea este reală.
+
+### QA per imagine
+
+Este implementată funcția:
+
+```cpp
+ImageQA computeQA(
+    const ImageMetadata& metadata,
+    const cv::Mat& image,
+    double blur_threshold,
+    double brightness_threshold
+);
+```
+
+QA-ul per imagine:
+
+- verifică dacă imaginea poate fi încărcată;
+- calculează brightness-ul mediu pe canalele BGR;
+- convertește imaginea în grayscale;
+- calculează sharpness-ul prin variance of Laplacian;
+- normalizează sharpness-ul într-un `blur_score` între `0` și `1`;
+- verifică GPS-ul folosind `metadata.has_valid_gps`;
+- preia verdictul AI din metadata;
+- adaugă issue-uri precum `image_unreadable`, `too_dark`, `too_blurry`, `invalid_gps`, `ai_generated` și `likely_ai_generated`;
+- calculează verdictul final `passed`.
+
+O imagine trece QA numai dacă brightness-ul, blur-ul, GPS-ul și politica AI sunt acceptabile.
+
 ### Integrarea curentă în `main.cpp`
 
 `main.cpp`:
@@ -193,12 +254,8 @@ Scannerul:
 
 - Tratarea tuturor namespace-urilor XMP specifice producătorilor de camere.
 - Citirea rezoluției din OpenCV ca fallback atunci când EXIF nu conține dimensiunile.
-- Structura `ImageQA`.
-- Calcularea blurului.
-- Calcularea brightness-ului.
 - Calcularea pixel density.
-- Calcularea scorului GPS.
-- Detectarea problemelor individuale ale imaginilor.
+- Integrarea completă a rezultatelor `ImageQA` în fluxul principal și raport.
 - Analiza secvențelor.
 - Detectarea salturilor GPS.
 - Verificarea coerenței heading-ului.
@@ -214,7 +271,7 @@ Scannerul:
 
 ## Pașii următori
 
-### Milestone 1 — Finalizat: CLI
+### [x] Milestone 1 — Finalizat: CLI
 
 CLI-ul a fost implementat și testat pentru help, version, input, praguri, upload, token, verbose și quiet.
 
@@ -234,7 +291,7 @@ cmake --build build
 ./build/panoramax_qa --help
 ```
 
-### Milestone 2 — Finalizat: EXIF parsing pentru o singură imagine
+### [x] Milestone 2 — Finalizat: EXIF parsing pentru o singură imagine
 
 Parserul a fost testat cu imagini fără GPS și cu o imagine de test căreia i-au fost adăugate metadata GPS cu ExifTool.
 
@@ -249,7 +306,7 @@ Parserul a fost testat cu imagini fără GPS și cu o imagine de test căreia i-
 9. Citește timestamp-ul și dimensiunile.
 10. Testează imagini cu metadata completă și imagini fără GPS.
 
-### Milestone 3 — Finalizat: scanarea folderului
+### [x] Milestone 3 — Finalizat: scanarea folderului
 
 Scannerul a fost testat pe un folder cu imagini JPEG și PNG, inclusiv extensii cu litere mari.
 
@@ -266,7 +323,9 @@ Exemplu de structură:
 std::vector<ImageMetadata> images;
 ```
 
-### Milestone 4 — QA per imagine
+### [x] Milestone 4 — Finalizat: QA per imagine
+
+Au fost implementate încărcarea și verificările de bază pentru o imagine. Pixel density și integrarea în raport rămân pentru pașii următori.
 
 1. Creează `includes/qa/image_qa.hpp`.
 2. Definește structura `ImageQA`.

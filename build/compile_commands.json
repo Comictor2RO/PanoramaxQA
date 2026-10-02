@@ -1,0 +1,122 @@
+[
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/main.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/main.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/main.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/cli/args.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/cli/args.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/cli/args.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/image/exif_parser.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/image/exif_parser.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/image/exif_parser.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/image/scanner.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/image/scanner.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/ai/c2pa_detector.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/ai/c2pa_detector.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/src",
+  "command": "/usr/bin/c++ -DC2PA_DLL -Dc2pa_cpp_EXPORTS -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/src -std=c++17 -fPIC -Wall -Wextra -Werror -Wformat=2 -Wformat-security -Wnull-dereference -Wstack-protector -fstack-protector-strong -fPIC -Wno-deprecated-declarations -D_FORTIFY_SOURCE=2 -o CMakeFiles/c2pa_cpp.dir/c2pa.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/src/c2pa.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/src/c2pa.cpp",
+  "output": "_deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/c2pa.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/c2pa_c_tests.dir/builder.test.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/builder.test.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/builder.test.cpp",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/builder.test.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/c2pa_c_tests.dir/context.test.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/context.test.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/context.test.cpp",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/context.test.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/c2pa_c_tests.dir/embeddable.test.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/embeddable.test.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/embeddable.test.cpp",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/embeddable.test.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/c2pa_c_tests.dir/migrations.test.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/migrations.test.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/migrations.test.cpp",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/migrations.test.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/c2pa_c_tests.dir/reader.test.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/reader.test.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/reader.test.cpp",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/reader.test.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/c2pa_c_tests.dir/version.test.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/version.test.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/version.test.cpp",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/version.test.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/tests",
+  "command": "/usr/bin/cc  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/c-app-test -std=gnu17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/ctest.dir/c-app-test/test.c.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/c-app-test/test.c",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/tests/c-app-test/test.c",
+  "output": "_deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/c-app-test/test.c.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Werror -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/c++  -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Werror -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Werror -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/c++  -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/include -isystem /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wall -Wextra -Werror -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/examples",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/training.dir/training.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/examples/training.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/examples/training.cpp",
+  "output": "_deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/training.cpp.o"
+},
+{
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/examples",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -std=c++17 -Wall -Wextra -Werror -Wno-deprecated-declarations -o CMakeFiles/demo.dir/demo.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/examples/demo.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/examples/demo.cpp",
+  "output": "_deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/demo.cpp.o"
+}
+]

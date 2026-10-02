@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/CMakeFiles/c2pa_cpp-populate"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/CMakeFiles/c2pa_cpp-populate.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/CMakeFiles/c2pa_cpp-populate-complete.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-build.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-configure.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-download.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-install.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-patch.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-test.rule"
+		},
+		{
+			"file" : "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-subbuild/c2pa_cpp-populate-prefix/src/c2pa_cpp-populate-stamp/c2pa_cpp-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"c2pa_cpp-populate"
+		],
+		"name" : "c2pa_cpp-populate"
+	}
+}

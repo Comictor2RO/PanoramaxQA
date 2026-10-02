@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles /home/comictor2ro/Desktop/panoramax_qa/build//CMakeFiles/progress.marks
@@ -128,6 +173,147 @@ panoramax_qa: cmake_check_build_system
 panoramax_qa/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/build
 .PHONY : panoramax_qa/fast
+
+#=============================================================================
+# Target rules for targets named c2pa_cpp
+
+# Build rule for target.
+c2pa_cpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 c2pa_cpp
+.PHONY : c2pa_cpp
+
+# fast build rule for target.
+c2pa_cpp/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/build.make _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/build
+.PHONY : c2pa_cpp/fast
+
+#=============================================================================
+# Target rules for targets named c2pa_c_tests
+
+# Build rule for target.
+c2pa_c_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 c2pa_c_tests
+.PHONY : c2pa_c_tests
+
+# fast build rule for target.
+c2pa_c_tests/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/build
+.PHONY : c2pa_c_tests/fast
+
+#=============================================================================
+# Target rules for targets named ctest
+
+# Build rule for target.
+ctest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ctest
+.PHONY : ctest
+
+# fast build rule for target.
+ctest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/build
+.PHONY : ctest/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named training
+
+# Build rule for target.
+training: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 training
+.PHONY : training
+
+# fast build rule for target.
+training/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/build
+.PHONY : training/fast
+
+#=============================================================================
+# Target rules for targets named demo
+
+# Build rule for target.
+demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 demo
+.PHONY : demo
+
+# fast build rule for target.
+demo/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/build
+.PHONY : demo/fast
+
+src/ai/c2pa_detector.o: src/ai/c2pa_detector.cpp.o
+.PHONY : src/ai/c2pa_detector.o
+
+# target to build an object file
+src/ai/c2pa_detector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.o
+.PHONY : src/ai/c2pa_detector.cpp.o
+
+src/ai/c2pa_detector.i: src/ai/c2pa_detector.cpp.i
+.PHONY : src/ai/c2pa_detector.i
+
+# target to preprocess a source file
+src/ai/c2pa_detector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.i
+.PHONY : src/ai/c2pa_detector.cpp.i
+
+src/ai/c2pa_detector.s: src/ai/c2pa_detector.cpp.s
+.PHONY : src/ai/c2pa_detector.s
+
+# target to generate assembly for a file
+src/ai/c2pa_detector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/ai/c2pa_detector.cpp.s
+.PHONY : src/ai/c2pa_detector.cpp.s
 
 src/cli/args.o: src/cli/args.cpp.o
 .PHONY : src/cli/args.o
@@ -225,6 +411,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/qa/image_qa.o: src/qa/image_qa.cpp.o
+.PHONY : src/qa/image_qa.o
+
+# target to build an object file
+src/qa/image_qa.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o
+.PHONY : src/qa/image_qa.cpp.o
+
+src/qa/image_qa.i: src/qa/image_qa.cpp.i
+.PHONY : src/qa/image_qa.i
+
+# target to preprocess a source file
+src/qa/image_qa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.i
+.PHONY : src/qa/image_qa.cpp.i
+
+src/qa/image_qa.s: src/qa/image_qa.cpp.s
+.PHONY : src/qa/image_qa.s
+
+# target to generate assembly for a file
+src/qa/image_qa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.s
+.PHONY : src/qa/image_qa.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,8 +442,24 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... c2pa_c_tests"
+	@echo "... c2pa_cpp"
+	@echo "... ctest"
+	@echo "... demo"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... panoramax_qa"
+	@echo "... training"
+	@echo "... src/ai/c2pa_detector.o"
+	@echo "... src/ai/c2pa_detector.i"
+	@echo "... src/ai/c2pa_detector.s"
 	@echo "... src/cli/args.o"
 	@echo "... src/cli/args.i"
 	@echo "... src/cli/args.s"
@@ -246,6 +472,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/qa/image_qa.o"
+	@echo "... src/qa/image_qa.i"
+	@echo "... src/qa/image_qa.s"
 .PHONY : help
 
 

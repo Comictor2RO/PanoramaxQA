@@ -529,3 +529,43 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build/_deps/googletest-src/googletest/cmake/internal_utils.cmake:66 (find_package)"
+      - "build/_deps/googletest-src/googletest/CMakeLists.txt:83 (config_compiler_and_linker)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles/CMakeScratch/TryCompile-jIhpJS"
+      binary: "/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles/CMakeScratch/TryCompile-jIhpJS"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.3"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles/CMakeScratch/TryCompile-jIhpJS'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5fc9c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5fc9c.dir/build.make CMakeFiles/cmTC_5fc9c.dir/build
+        gmake[1]: Entering directory '/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles/CMakeScratch/TryCompile-jIhpJS'
+        Building C object CMakeFiles/cmTC_5fc9c.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu17 -o CMakeFiles/cmTC_5fc9c.dir/src.c.o -c /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles/CMakeScratch/TryCompile-jIhpJS/src.c
+        Linking C executable cmTC_5fc9c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fc9c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_5fc9c.dir/src.c.o -o cmTC_5fc9c 
+        gmake[1]: Leaving directory '/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles/CMakeScratch/TryCompile-jIhpJS'
+        
+      exitCode: 0
+...

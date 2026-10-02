@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/training.dir/training.cpp.o -o training   -L/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/lib  -Wl,-rpath,"\$ORIGIN" ../src/libc2pa_cpp.so -lc2pa_c 

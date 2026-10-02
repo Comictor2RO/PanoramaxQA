@@ -64,29 +64,171 @@ CMAKE_BINARY_DIR = /home/comictor2ro/Desktop/panoramax_qa/build
 
 # The main recursive "all" target.
 all: CMakeFiles/panoramax_qa.dir/all
+all: _deps/c2pa_cpp-build/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: _deps/c2pa_cpp-build/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/panoramax_qa.dir/clean
+clean: _deps/c2pa_cpp-build/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory _deps/c2pa_cpp-build
+
+# Recursive "all" directory target.
+_deps/c2pa_cpp-build/all: _deps/c2pa_cpp-build/src/all
+_deps/c2pa_cpp-build/all: _deps/c2pa_cpp-build/tests/all
+_deps/c2pa_cpp-build/all: _deps/c2pa_cpp-build/examples/all
+.PHONY : _deps/c2pa_cpp-build/all
+
+# Recursive "preinstall" directory target.
+_deps/c2pa_cpp-build/preinstall: _deps/c2pa_cpp-build/src/preinstall
+_deps/c2pa_cpp-build/preinstall: _deps/c2pa_cpp-build/tests/preinstall
+_deps/c2pa_cpp-build/preinstall: _deps/c2pa_cpp-build/examples/preinstall
+.PHONY : _deps/c2pa_cpp-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/c2pa_cpp-build/clean: _deps/c2pa_cpp-build/src/clean
+_deps/c2pa_cpp-build/clean: _deps/c2pa_cpp-build/tests/clean
+_deps/c2pa_cpp-build/clean: _deps/c2pa_cpp-build/examples/clean
+.PHONY : _deps/c2pa_cpp-build/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/c2pa_cpp-build/examples
+
+# Recursive "all" directory target.
+_deps/c2pa_cpp-build/examples/all: _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/all
+_deps/c2pa_cpp-build/examples/all: _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/all
+.PHONY : _deps/c2pa_cpp-build/examples/all
+
+# Recursive "preinstall" directory target.
+_deps/c2pa_cpp-build/examples/preinstall:
+.PHONY : _deps/c2pa_cpp-build/examples/preinstall
+
+# Recursive "clean" directory target.
+_deps/c2pa_cpp-build/examples/clean: _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/clean
+_deps/c2pa_cpp-build/examples/clean: _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/clean
+.PHONY : _deps/c2pa_cpp-build/examples/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/c2pa_cpp-build/src
+
+# Recursive "all" directory target.
+_deps/c2pa_cpp-build/src/all: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+_deps/c2pa_cpp-build/src/all: _deps/json-build/all
+.PHONY : _deps/c2pa_cpp-build/src/all
+
+# Recursive "preinstall" directory target.
+_deps/c2pa_cpp-build/src/preinstall: _deps/json-build/preinstall
+.PHONY : _deps/c2pa_cpp-build/src/preinstall
+
+# Recursive "clean" directory target.
+_deps/c2pa_cpp-build/src/clean: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/clean
+_deps/c2pa_cpp-build/src/clean: _deps/json-build/clean
+.PHONY : _deps/c2pa_cpp-build/src/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/c2pa_cpp-build/tests
+
+# Recursive "all" directory target.
+_deps/c2pa_cpp-build/tests/all: _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/all
+_deps/c2pa_cpp-build/tests/all: _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/all
+_deps/c2pa_cpp-build/tests/all: _deps/googletest-build/all
+.PHONY : _deps/c2pa_cpp-build/tests/all
+
+# Recursive "preinstall" directory target.
+_deps/c2pa_cpp-build/tests/preinstall: _deps/googletest-build/preinstall
+.PHONY : _deps/c2pa_cpp-build/tests/preinstall
+
+# Recursive "clean" directory target.
+_deps/c2pa_cpp-build/tests/clean: _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/clean
+_deps/c2pa_cpp-build/tests/clean: _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/clean
+_deps/c2pa_cpp-build/tests/clean: _deps/googletest-build/clean
+.PHONY : _deps/c2pa_cpp-build/tests/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build
+
+# Recursive "all" directory target.
+_deps/googletest-build/all: _deps/googletest-build/googlemock/all
+.PHONY : _deps/googletest-build/all
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/preinstall: _deps/googletest-build/googlemock/preinstall
+.PHONY : _deps/googletest-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/clean: _deps/googletest-build/googlemock/clean
+.PHONY : _deps/googletest-build/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build/googlemock
+
+# Recursive "all" directory target.
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googletest/all
+.PHONY : _deps/googletest-build/googlemock/all
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/googlemock/preinstall: _deps/googletest-build/googletest/preinstall
+.PHONY : _deps/googletest-build/googlemock/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googletest/clean
+.PHONY : _deps/googletest-build/googlemock/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build/googletest
+
+# Recursive "all" directory target.
+_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+.PHONY : _deps/googletest-build/googletest/all
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/googletest/preinstall:
+.PHONY : _deps/googletest-build/googletest/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : _deps/googletest-build/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/json-build
+
+# Recursive "all" directory target.
+_deps/json-build/all:
+.PHONY : _deps/json-build/all
+
+# Recursive "preinstall" directory target.
+_deps/json-build/preinstall:
+.PHONY : _deps/json-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/json-build/clean:
+.PHONY : _deps/json-build/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/panoramax_qa.dir
 
 # All Build rule for target.
-CMakeFiles/panoramax_qa.dir/all:
+CMakeFiles/panoramax_qa.dir/all: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target panoramax_qa"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=23,24,25,26,27,28,29 "Built target panoramax_qa"
 .PHONY : CMakeFiles/panoramax_qa.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/panoramax_qa.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/panoramax_qa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
 .PHONY : CMakeFiles/panoramax_qa.dir/rule
@@ -99,6 +241,243 @@ panoramax_qa: CMakeFiles/panoramax_qa.dir/rule
 CMakeFiles/panoramax_qa.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/clean
 .PHONY : CMakeFiles/panoramax_qa.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir
+
+# All Build rule for target.
+_deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/build.make _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/build.make _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=8,9,10 "Built target c2pa_cpp"
+.PHONY : _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/rule
+
+# Convenience name for target.
+c2pa_cpp: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/rule
+.PHONY : c2pa_cpp
+
+# clean rule for target.
+_deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/build.make _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/clean
+.PHONY : _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir
+
+# All Build rule for target.
+_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/all: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target c2pa_c_tests"
+.PHONY : _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/rule
+
+# Convenience name for target.
+c2pa_c_tests: _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/rule
+.PHONY : c2pa_c_tests
+
+# clean rule for target.
+_deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/clean
+.PHONY : _deps/c2pa_cpp-build/tests/CMakeFiles/c2pa_c_tests.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir
+
+# All Build rule for target.
+_deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/all: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=11,12 "Built target ctest"
+.PHONY : _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/rule
+
+# Convenience name for target.
+ctest: _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/rule
+.PHONY : ctest
+
+# clean rule for target.
+_deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/build.make _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/clean
+.PHONY : _deps/c2pa_cpp-build/tests/CMakeFiles/ctest.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+
+# All Build rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=15,16 "Built target gmock"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
+
+# Convenience name for target.
+gmock: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
+.PHONY : gmock
+
+# clean rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+
+# All Build rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=17,18 "Built target gmock_main"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
+
+# Convenience name for target.
+gmock_main: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
+.PHONY : gmock_main
+
+# clean rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+
+# All Build rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=19,20 "Built target gtest"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
+
+# Convenience name for target.
+gtest: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
+.PHONY : gtest
+
+# clean rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+
+# All Build rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=21,22 "Built target gtest_main"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
+
+# Convenience name for target.
+gtest_main: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
+.PHONY : gtest_main
+
+# clean rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir
+
+# All Build rule for target.
+_deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/all: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=30,31 "Built target training"
+.PHONY : _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/rule
+
+# Convenience name for target.
+training: _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/rule
+.PHONY : training
+
+# clean rule for target.
+_deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/clean
+.PHONY : _deps/c2pa_cpp-build/examples/CMakeFiles/training.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir
+
+# All Build rule for target.
+_deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/all: _deps/c2pa_cpp-build/src/CMakeFiles/c2pa_cpp.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles --progress-num=13,14 "Built target demo"
+.PHONY : _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/comictor2ro/Desktop/panoramax_qa/build/CMakeFiles 0
+.PHONY : _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/rule
+
+# Convenience name for target.
+demo: _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/rule
+.PHONY : demo
+
+# clean rule for target.
+_deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/build.make _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/clean
+.PHONY : _deps/c2pa_cpp-build/examples/CMakeFiles/demo.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
