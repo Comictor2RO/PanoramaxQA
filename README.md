@@ -1,143 +1,143 @@
 # Panoramax QA
 
-Panoramax QA este o aplicatie C++23 care scaneaza imagini, citeste metadata EXIF/XMP si metadata C2PA si pregateste datele pentru verificari de calitate si generarea unui raport.
+Panoramax QA is a C++23 application that scans images, reads EXIF/XMP and C2PA metadata, and prepares data for quality checks and report generation.
 
-## Stare curenta
+## Current status
 
-Implementat:
+Implemented:
 
-- parsarea argumentelor CLI cu CLI11;
-- scanarea unui folder fara subdirectoare;
-- filtrarea extensiilor `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff` si `.webp`;
-- sortarea determinista a imaginilor;
-- parsarea GPS din EXIF;
-- conversia coordonatelor din grade, minute si secunde in grade zecimale;
-- citirea altitudinii, GPSDOP, heading-ului, timestamp-ului si dimensiunilor;
-- citirea optionala a unor valori pitch/roll din XMP;
-- detectarea unor indicii AI din EXIF/XMP;
-- citirea manifestelor C2PA;
-- afisarea verdictului AI in modul verbose.
-- calcularea brightness-ului si sharpness-ului pentru fiecare imagine;
-- calcularea unui blur score normalizat;
-- calcularea GPS score;
-- generarea issue-urilor si a verdictului QA per imagine.
+- CLI argument parsing with CLI11;
+- scanning a folder without subdirectories;
+- filtering `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff`, and `.webp` extensions;
+- deterministic image sorting;
+- parsing GPS data from EXIF;
+- converting coordinates from degrees, minutes, and seconds to decimal degrees;
+- reading altitude, GPSDOP, heading, timestamp, and dimensions;
+- optionally reading pitch/roll values from XMP;
+- detecting AI indicators in EXIF/XMP;
+- reading C2PA manifests;
+- displaying the AI verdict in verbose mode;
+- calculating brightness and sharpness for each image;
+- calculating a normalized blur score;
+- calculating the GPS score;
+- generating issues and a per-image QA verdict.
 
-Inca neimplementat:
+Not yet implemented:
 
-- calcularea pixel density;
-- integrarea completa a rezultatelor QA in raportul final;
-- analiza secventelor;
-- raport JSON/CSV;
-- teste unitare complete;
-- upload-ul catre API-ul Panoramax.
+- calculating pixel density;
+- fully integrating QA results into the final report;
+- sequence analysis;
+- JSON/CSV reporting;
+- complete unit tests;
+- uploading to the Panoramax API.
 
-## Dependente
+## Dependencies
 
 ### CLI11
 
-CLI11 este folosit pentru parsarea argumentelor liniei de comanda:
+CLI11 is used to parse command-line arguments:
 
-- `--input` / `-i` pentru folderul de intrare;
-- `--blur` / `-B` pentru pragul de blur;
-- `--brightness` / `-b` pentru pragul de brightness;
-- `--jump` / `-j` pentru saltul GPS maxim;
-- `--report` / `-r` pentru calea raportului;
-- `--upload` / `-u` pentru activarea upload-ului;
-- `--token` / `-t` pentru token;
-- `--api` / `-a` pentru URL-ul API;
-- `--verbose`, `--quiet` si `--version`.
+- `--input` / `-i` for the input folder;
+- `--blur` / `-B` for the blur threshold;
+- `--brightness` / `-b` for the brightness threshold;
+- `--jump` / `-j` for the maximum GPS jump;
+- `--report` / `-r` for the report path;
+- `--upload` / `-u` to enable uploading;
+- `--token` / `-t` for the token;
+- `--api` / `-a` for the API URL;
+- `--verbose`, `--quiet`, and `--version`.
 
-CLI11 valideaza folderul de intrare, valorile numerice si erorile de parsing.
+CLI11 validates the input folder, numeric values, and parsing errors.
 
 ### Exiv2
 
-Exiv2 este folosit pentru metadata EXIF si XMP:
+Exiv2 is used for EXIF and XMP metadata:
 
-- coordonate GPS;
-- referinte GPS `N`, `S`, `E`, `W`;
-- altitudine;
+- GPS coordinates;
+- GPS references `N`, `S`, `E`, `W`;
+- altitude;
 - GPSDOP;
 - heading;
-- timestamp EXIF;
-- latime si inaltime;
-- unele valori XMP.
+- EXIF timestamp;
+- width and height;
+- some XMP values.
 
-Erorile Exiv2 nu trebuie sa opreasca procesarea tuturor imaginilor. O imagine cu metadata lipsa sau invalida este pastrata in rezultate cu valori implicite si `is_valid = false`.
+Exiv2 errors must not stop processing all images. An image with missing or invalid metadata is kept in the results with default values and `is_valid = false`.
 
 ### C2PA
 
-C2PA este folosit pentru citirea si validarea manifestelor de provenance din imagini. Proiectul foloseste biblioteca C++ `c2pa-cpp`, descarcata prin CMake `FetchContent`.
+C2PA is used to read and validate provenance manifests in images. The project uses the C++ `c2pa-cpp` library, downloaded through CMake `FetchContent`.
 
-Detectorul C2PA:
+The C2PA detector:
 
-1. incearca sa deschida imaginea cu `c2pa::Reader::from_asset()`;
-2. ignora imaginile fara manifest C2PA;
-3. citeste manifestul ca JSON;
-4. cauta provideri si actiuni care indica generare AI;
-5. adauga indicatorii gasiti in `ImageMetadata`;
-6. combina rezultatul cu fallback-ul EXIF/XMP.
+1. attempts to open the image with `c2pa::Reader::from_asset()`;
+2. ignores images without a C2PA manifest;
+3. reads the manifest as JSON;
+4. looks for providers and actions that indicate AI generation;
+5. adds the indicators found to `ImageMetadata`;
+6. combines the result with the EXIF/XMP fallback.
 
-Manifestul C2PA este preferabil unei simple cautari de text, deoarece biblioteca poate verifica binding-ul si validarea manifestului.
+The C2PA manifest is preferable to a simple text search because the library can verify the binding and validate the manifest.
 
 ### OpenCV
 
-OpenCV este folosit pentru analiza imaginilor:
+OpenCV is used for image analysis:
 
-- incarcarea imaginilor;
-- calcularea brightness-ului;
-- calcularea sharpness-ului prin variance of Laplacian;
-- calcularea blur score-ului normalizat;
-- alte metrici QA viitoare.
+- loading images;
+- calculating brightness;
+- calculating sharpness using the variance of Laplacian;
+- calculating the normalized blur score;
+- other future QA metrics.
 
 ### nlohmann/json
 
-`nlohmann/json` este folosit pentru citirea JSON-ului returnat de C2PA si va fi folosit ulterior la generarea raportului JSON.
+`nlohmann/json` is used to read the JSON returned by C2PA and will later be used to generate the JSON report.
 
-## QA per imagine
+## Per-image QA
 
-Functia `computeQA()` combina imaginea OpenCV cu `ImageMetadata` si produce un rezultat `ImageQA`.
+The `computeQA()` function combines the OpenCV image with `ImageMetadata` and produces an `ImageQA` result.
 
 ### Brightness
 
-Brightness-ul este media celor trei canale BGR si este comparat cu pragul `--brightness`.
-Imaginile sub prag primesc issue-ul `too_dark`.
+Brightness is the mean of the three BGR channels and is compared with the `--brightness` threshold.
+Images below the threshold receive the `too_dark` issue.
 
-### Blur si sharpness
+### Blur and sharpness
 
-Imaginea este convertita in grayscale, apoi se calculeaza variance of Laplacian:
+The image is converted to grayscale, then the variance of Laplacian is calculated:
 
-- variance mica indica o imagine blurata;
-- variance mare indica o imagine mai clara.
+- low variance indicates a blurry image;
+- high variance indicates a sharper image.
 
-Valoarea este normalizata intr-un `blur_score` intre `0` si `1` si comparata cu pragul `--blur`. Imaginile sub prag primesc issue-ul `too_blurry`.
+The value is normalized to a `blur_score` between `0` and `1` and compared with the `--blur` threshold. Images below the threshold receive the `too_blurry` issue.
 
 ### GPS score
 
-`gps_score` este `1.0` cand `ImageMetadata::has_valid_gps` este adevarat si `0.0` in caz contrar. Lipsa unui GPS valid adauga issue-ul `invalid_gps`.
+`gps_score` is `1.0` when `ImageMetadata::has_valid_gps` is true and `0.0` otherwise. Missing valid GPS data adds the `invalid_gps` issue.
 
-### Verdict AI in QA
+### AI verdict in QA
 
-Verdictul AI este preluat din `ImageMetadata`:
+The AI verdict is taken from `ImageMetadata`:
 
-- `confirmed` adauga `ai_generated` si respinge imaginea;
-- `likely` adauga `likely_ai_generated` si respinge imaginea;
-- `not_detected` nu adauga un issue si accepta verificarea AI;
-- `unknown` adauga `ai_status_unknown`, dar nu respinge automat imaginea.
+- `confirmed` adds `ai_generated` and rejects the image;
+- `likely` adds `likely_ai_generated` and rejects the image;
+- `not_detected` adds no issue and passes the AI check;
+- `unknown` adds `ai_status_unknown`, but does not automatically reject the image.
 
-Verdictul final `passed` este adevarat numai cand blur-ul, brightness-ul, GPS-ul si politica AI sunt acceptabile.
+The final `passed` verdict is true only when blur, brightness, GPS, and the AI policy are acceptable.
 
-## Detectarea imaginilor generate cu AI
+## Detecting AI-generated images
 
-Detectarea actuala este bazata pe indicii de metadata si provenance. Nu este un detector vizual si nu poate demonstra ca o imagine este reala doar pentru ca nu are indicii AI.
+The current detection is based on metadata and provenance indicators. It is not a visual detector and cannot prove that an image is real simply because it has no AI indicators.
 
-### Indicii EXIF/XMP
+### EXIF/XMP indicators
 
-Detectorul cauta valori in:
+The detector looks for values in:
 
 - `Exif.Image.Software`;
 - `Xmp.xmp.CreatorTool`.
 
-Printre markerii cautati se afla:
+The markers searched for include:
 
 - Midjourney;
 - Stable Diffusion;
@@ -150,53 +150,53 @@ Printre markerii cautati se afla:
 - Ideogram;
 - BytePlus ModelArk.
 
-Un marker gasit in EXIF sau XMP produce verdictul `likely`.
+A marker found in EXIF or XMP produces the `likely` verdict.
 
-### Indicii C2PA
+### C2PA indicators
 
-Pentru manifestele C2PA sunt cautate valori precum:
+For C2PA manifests, the detector searches for values such as:
 
-- provider-ul software;
+- the software provider;
 - `BytePlus_ModelArk`;
-- actiuni de creare sau generare;
-- texte care indica generare.
+- creation or generation actions;
+- text indicating generation.
 
-Daca exista un provider sau o actiune AI, indicatorul este pastrat in `ai_indicators`.
+If an AI provider or action exists, the indicator is kept in `ai_indicators`.
 
-C2PA este mai puternic decat EXIF/XMP atunci cand manifestul este valid si semnatura poate fi verificata. In aplicatie, un manifest fara erori de validare poate produce verdictul `confirmed`, iar un manifest cu erori de validare produce `likely`.
+C2PA is stronger than EXIF/XMP when the manifest is valid and its signature can be verified. In the application, a manifest without validation errors can produce the `confirmed` verdict, while a manifest with validation errors produces `likely`.
 
-## Verdicturi AI
+## AI verdicts
 
-Verdictul este stocat in:
+The verdict is stored in:
 
 ```cpp
 AiVerdict ai_verdict;
 ```
 
-si poate avea una dintre valorile urmatoare.
+and can have one of the following values.
 
 ### `confirmed`
 
-Manifestul C2PA indica generare AI si nu raporteaza erori de validare.
+The C2PA manifest indicates AI generation and reports no validation errors.
 
-Acesta este cel mai puternic verdict disponibil in implementarea curenta. El depinde de validarea facuta de biblioteca C2PA.
+This is the strongest verdict currently available in the implementation. It depends on validation performed by the C2PA library.
 
 ### `likely`
 
-Au fost gasiti indicatori expliciti AI in EXIF, XMP sau intr-un manifest C2PA care are probleme de validare.
+Explicit AI indicators were found in EXIF, XMP, or in a C2PA manifest with validation problems.
 
-Exemple:
+Examples:
 
 - `Software = Stable Diffusion`;
 - `CreatorTool = Midjourney`;
-- provider C2PA cunoscut;
-- actiune C2PA de generare cu validare incompleta.
+- a known C2PA provider;
+- a C2PA generation action with incomplete validation.
 
-Acest verdict este probabil, dar metadata poate fi modificata sau falsificata.
+This verdict is likely, but metadata can be modified or forged.
 
 ### `not_detected`
 
-Nu a fost gasit niciun indicator AI, iar imaginea contine cel putin doua campuri coerente de camera, de exemplu:
+No AI indicator was found, and the image contains at least two coherent camera fields, for example:
 
 - `Make`;
 - `Model`;
@@ -204,22 +204,22 @@ Nu a fost gasit niciun indicator AI, iar imaginea contine cel putin doua campuri
 - `FNumber`;
 - `LensModel`.
 
-Acest verdict inseamna doar ca generarea AI nu a fost detectata. Nu este o dovada absoluta ca imaginea este reala.
+This verdict only means that AI generation was not detected. It is not absolute proof that the image is real.
 
 ### `unknown`
 
-Nu exista suficiente informatii pentru o concluzie:
+There is not enough information to reach a conclusion:
 
-- metadata lipsa;
-- imagine exportata fara EXIF/XMP/C2PA;
-- eroare la citirea manifestului;
-- imagine fara campuri coerente de camera si fara indicatori AI.
+- missing metadata;
+- an image exported without EXIF/XMP/C2PA;
+- an error while reading the manifest;
+- an image without coherent camera fields and without AI indicators.
 
-O imagine AI ale carei metadata au fost sterse va ajunge, de regula, la `unknown`.
+An AI-generated image whose metadata has been removed will generally receive the `unknown` verdict.
 
-## Confidence si indicatori
+## Confidence and indicators
 
-Rezultatul este pastrat in `ImageMetadata`:
+The result is stored in `ImageMetadata`:
 
 ```cpp
 AiVerdict ai_verdict = AiVerdict::unknown;
@@ -227,14 +227,14 @@ double ai_confidence = 0.0;
 std::vector<std::string> ai_indicators;
 ```
 
-Valorile curente sunt orientative:
+The current values are indicative:
 
-- `1.0` pentru `confirmed`;
-- `0.9` pentru `likely`;
-- `0.6` pentru `not_detected`;
-- `0.0` pentru `unknown`.
+- `1.0` for `confirmed`;
+- `0.9` for `likely`;
+- `0.6` for `not_detected`;
+- `0.0` for `unknown`.
 
-Aceste valori nu reprezinta probabilitati statistice calibrate.
+These values are not calibrated statistical probabilities.
 
 ## Build
 
@@ -243,23 +243,23 @@ cmake -S . -B build
 cmake --build build --parallel
 ```
 
-C2PA este descarcat prin `FetchContent`, deci prima configurare necesita acces la internet.
+C2PA is downloaded through `FetchContent`, so the first configuration requires internet access.
 
-## Utilizare
+## Usage
 
-Afisare help:
+Display help:
 
 ```bash
 ./build/panoramax_qa --help
 ```
 
-Afisare versiune:
+Display the version:
 
 ```bash
 ./build/panoramax_qa --version
 ```
 
-Procesare folder:
+Process a folder:
 
 ```bash
 ./build/panoramax_qa \
@@ -267,24 +267,24 @@ Procesare folder:
     --verbose
 ```
 
-Exemplu de output:
+Example output:
 
 ```text
 Images found: 1
 ./test_folder/image.jpg | valid: true | ai_verdict: likely | ai_confidence: 0.9
 ```
 
-Pentru inspectarea metadata unei imagini:
+To inspect an image's metadata:
 
 ```bash
-exiv2 -pa imagine.jpg
+exiv2 -pa image.jpg
 ```
 
-## Limitari
+## Limitations
 
-- Lipsa metadata nu demonstreaza ca imaginea nu este generata cu AI.
-- EXIF si XMP pot fi sterse sau modificate.
-- Un provider poate folosi un nume care nu exista in lista curenta.
-- Detectarea C2PA depinde de manifest, semnatura si suportul formatului.
-- CBOR este procesat prin C2PA atunci cand face parte dintr-un manifest suportat; Exiv2 nu este folosit pentru citirea manifestelor C2PA.
-- `pitch` si `roll` nu au tag-uri EXIF universale.
+- Missing metadata does not prove that an image was not AI-generated.
+- EXIF and XMP can be deleted or modified.
+- A provider may use a name that is not currently in the list.
+- C2PA detection depends on the manifest, signature, and format support.
+- CBOR is processed through C2PA when it is part of a supported manifest; Exiv2 is not used to read C2PA manifests.
+- `pitch` and `roll` do not have universal EXIF tags.

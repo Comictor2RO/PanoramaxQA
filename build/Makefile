@@ -435,6 +435,30 @@ src/qa/image_qa.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.s
 .PHONY : src/qa/image_qa.cpp.s
 
+src/qa/sequence_qa.o: src/qa/sequence_qa.cpp.o
+.PHONY : src/qa/sequence_qa.o
+
+# target to build an object file
+src/qa/sequence_qa.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o
+.PHONY : src/qa/sequence_qa.cpp.o
+
+src/qa/sequence_qa.i: src/qa/sequence_qa.cpp.i
+.PHONY : src/qa/sequence_qa.i
+
+# target to preprocess a source file
+src/qa/sequence_qa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.i
+.PHONY : src/qa/sequence_qa.cpp.i
+
+src/qa/sequence_qa.s: src/qa/sequence_qa.cpp.s
+.PHONY : src/qa/sequence_qa.s
+
+# target to generate assembly for a file
+src/qa/sequence_qa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/panoramax_qa.dir/build.make CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.s
+.PHONY : src/qa/sequence_qa.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -475,6 +499,9 @@ help:
 	@echo "... src/qa/image_qa.o"
 	@echo "... src/qa/image_qa.i"
 	@echo "... src/qa/image_qa.s"
+	@echo "... src/qa/sequence_qa.o"
+	@echo "... src/qa/sequence_qa.i"
+	@echo "... src/qa/sequence_qa.s"
 .PHONY : help
 
 

@@ -1,20 +1,20 @@
 # Panoramax QA — Milestones
 
-## Obiectiv
+## Objective
 
-Panoramax QA este o aplicație C++ care analizează imagini, extrage metadata EXIF/XMP, calculează metrici de calitate, detectează probleme la nivel de secvență și generează un raport JSON. Într-o etapă ulterioară, aplicația va putea încărca imaginile acceptate către API-ul Panoramax.
+Panoramax QA is a C++ application that analyzes images, extracts EXIF/XMP metadata, calculates quality metrics, detects sequence-level issues, and generates a JSON report. At a later stage, the application will be able to upload accepted images to the Panoramax API.
 
-## Implementat
+## Implemented
 
-### Structura inițială
+### Initial structure
 
-- Proiectul folosește CMake.
-- Compilatorul C++ este configurat cu standardul C++23.
-- Există directoare separate pentru cod sursă și headere.
-- Executabilul proiectului se numește `panoramax_qa`.
-- Build-ul funcționează în folderul separat `build/`.
+- The project uses CMake.
+- The C++ compiler is configured with the C++23 standard.
+- Separate directories exist for source code and headers.
+- The project executable is named `panoramax_qa`.
+- The build works in the separate `build/` folder.
 
-Structura actuală relevantă:
+Current relevant structure:
 
 ```text
 panoramax_qa/
@@ -46,23 +46,23 @@ panoramax_qa/
 
 ### CMake
 
-- CMake detectează OpenCV.
-- CMake detectează nlohmann/json.
-- CLI11 este inclus și link-uit prin target-ul `CLI11::CLI11`.
-- Exiv2 este declarat ca dependență.
-- C2PA este descarcat prin `FetchContent` si link-uit prin target-ul `c2pa_cpp`.
-- `src/main.cpp`, `src/cli/args.cpp`, `src/image/exif_parser.cpp`, `src/image/scanner.cpp` si `src/ai/c2pa_detector.cpp` sunt incluse in executabil.
-- Directorul `includes/` este disponibil pentru includerea headerelor proiectului.
-- Proiectul se configurează și se compilează cu succes.
+- CMake detects OpenCV.
+- CMake detects nlohmann/json.
+- CLI11 is included and linked through the `CLI11::CLI11` target.
+- Exiv2 is declared as a dependency.
+- C2PA is downloaded through `FetchContent` and linked through the `c2pa_cpp` target.
+- `src/main.cpp`, `src/cli/args.cpp`, `src/image/exif_parser.cpp`, `src/image/scanner.cpp`, and `src/ai/c2pa_detector.cpp` are included in the executable.
+- The `includes/` directory is available for including project headers.
+- The project configures and compiles successfully.
 
-Comenzi de build:
+Build commands:
 
 ```bash
 cmake -S . -B build
 cmake --build build
 ```
 
-Executabilul se rulează cu:
+Run the executable with:
 
 ```bash
 ./build/panoramax_qa
@@ -70,41 +70,41 @@ Executabilul se rulează cu:
 
 ### CLI parsing
 
-Este definită structura `CliArgs` în `includes/cli/args.hpp`.
+The `CliArgs` structure is defined in `includes/cli/args.hpp`.
 
-Câmpurile existente sunt:
+Existing fields:
 
-- `input_directory` — folderul cu imaginile.
-- `threshold_blur` — pragul pentru blur.
-- `threshold_brightness` — pragul pentru brightness.
-- `max_gps_jump_meters` — saltul GPS maxim acceptat.
-- `report_path` — calea raportului JSON.
-- `do_upload` — activează sau dezactivează upload-ul.
-- `verbose` — activează afișarea detaliată.
-- `quiet` — suprimă output-ul normal.
-- `token_path` — calea către token-ul Panoramax.
-- `api_base_url` — URL-ul de bază al API-ului Panoramax.
+- `input_directory` — the folder containing the images.
+- `threshold_blur` — the blur threshold.
+- `threshold_brightness` — the brightness threshold.
+- `max_gps_jump_meters` — the maximum accepted GPS jump.
+- `report_path` — the JSON report path.
+- `do_upload` — enables or disables uploading.
+- `verbose` — enables detailed output.
+- `quiet` — suppresses normal output.
+- `token_path` — the path to the Panoramax token.
+- `api_base_url` — the base URL of the Panoramax API.
 
-`parseArgs()` folosește CLI11 și implementează:
+`parseArgs()` uses CLI11 and implements:
 
-- opțiunea obligatorie `--input` / `-i`;
-- verificarea existenței folderului cu `CLI::ExistingDirectory`;
-- opțiunea `--blur` / `-B` cu `CLI::PositiveNumber`;
-- opțiunea `--brightness` / `-b` cu intervalul `0–255`;
-- opțiunea `--jump` / `-j` cu `CLI::PositiveNumber`;
-- opțiunea `--report` / `-r`;
-- flag-ul `--upload` / `-u`;
-- flag-ul `--verbose`;
-- flag-ul `--quiet`;
-- flag-ul `--version`;
-- opțiunea `--token` / `-t`;
-- opțiunea `--api` / `-a`;
-- expandarea căilor care încep cu `~` pentru token;
-- validarea faptului că tokenul poate fi deschis atunci când upload-ul este activat;
-- respingerea folosirii simultane a `--verbose` și `--quiet`;
-- afișarea automată a help-ului și a erorilor de parsing.
+- the required `--input` / `-i` option;
+- folder existence validation with `CLI::ExistingDirectory`;
+- the `--blur` / `-B` option with `CLI::PositiveNumber`;
+- the `--brightness` / `-b` option with a `0–255` range;
+- the `--jump` / `-j` option with `CLI::PositiveNumber`;
+- the `--report` / `-r` option;
+- the `--upload` / `-u` flag;
+- the `--verbose` flag;
+- the `--quiet` flag;
+- the `--version` flag;
+- the `--token` / `-t` option;
+- the `--api` / `-a` option;
+- expansion of paths beginning with `~` for the token;
+- validation that the token can be opened when uploading is enabled;
+- rejection of simultaneous use of `--verbose` and `--quiet`;
+- automatic display of help and parsing errors.
 
-Exemplu de rulare:
+Example run:
 
 ```bash
 ./build/panoramax_qa \
@@ -115,55 +115,55 @@ Exemplu de rulare:
     --report result.json
 ```
 
-### Modelul pentru metadata
+### Metadata model
 
-Este definită structura `ImageMetadata` în `includes/image/metadata.hpp`.
+The `ImageMetadata` structure is defined in `includes/image/metadata.hpp`.
 
-Structura conține câmpuri pentru:
+The structure contains fields for:
 
-- calea imaginii;
-- latitudine;
-- longitudine;
-- altitudine;
-- precizie GPS;
+- image path;
+- latitude;
+- longitude;
+- altitude;
+- GPS accuracy;
 - heading;
 - pitch;
 - roll;
 - timestamp;
-- lățime și înălțime;
-- starea `is_valid`.
-- verdictul detectiei AI;
-- confidence-ul detectiei AI;
-- indicatorii detectiei AI.
+- width and height;
+- `is_valid` status;
+- AI detection verdict;
+- AI detection confidence;
+- AI detection indicators.
 
-### EXIF și XMP parsing
+### EXIF and XMP parsing
 
-Este declarată funcția:
+The following function is declared:
 
 ```cpp
 ImageMetadata parseExif(const std::string& image_path);
 ```
 
-Funcția implementează:
+The function:
 
-- deschidă o imagine cu Exiv2;
-- citească metadata prin `readMetadata()`;
-- acceseze `ExifData`;
-- verifice tag-urile GPS esențiale;
-- convertească coordonatele GPS din grade, minute și secunde în grade zecimale;
-- aplice referințele `N`, `S`, `E` și `W`;
-- citească altitudinea și referința altitudinii;
-- citească GPSDOP;
-- citească heading-ul cu fallback de la `GPSImgDirection` la `GPSTrack`;
-- parseze timestamp-ul `DateTimeOriginal`;
-- citească lățimea și înălțimea din EXIF;
-- gestioneze erorile Exiv2 fără oprirea procesării celorlalte imagini;
-- citească opțional pitch-ul și roll-ul din XMP;
-- marcheze metadata ca validă atunci când GPS-ul și timestamp-ul sunt valide.
+- opens an image with Exiv2;
+- reads metadata through `readMetadata()`;
+- accesses `ExifData`;
+- checks the essential GPS tags;
+- converts GPS coordinates from degrees, minutes, and seconds to decimal degrees;
+- applies the `N`, `S`, `E`, and `W` references;
+- reads altitude and altitude reference;
+- reads GPSDOP;
+- reads the heading, falling back from `GPSImgDirection` to `GPSTrack`;
+- parses the `DateTimeOriginal` timestamp;
+- reads width and height from EXIF;
+- handles Exiv2 errors without stopping processing of the remaining images;
+- optionally reads pitch and roll from XMP;
+- marks metadata as valid when GPS and timestamp data are valid.
 
-Parsarea XMP este opțională. Un namespace XMP necunoscut, cum este `Camera`, nu trebuie să oprească parsarea EXIF.
+XMP parsing is optional. An unknown XMP namespace, such as `Camera`, must not stop EXIF parsing.
 
-Parserul a fost testat cu o imagine care conține GPS, altitudine, heading și timestamp. Rezultatul obținut a fost:
+The parser was tested with an image containing GPS, altitude, heading, and timestamp data. The result was:
 
 ```text
 valid: true
@@ -173,49 +173,49 @@ altitude: 80
 heading: 135
 ```
 
-### Scanarea folderului
+### Folder scanning
 
-Este implementată funcția:
+The following function is implemented:
 
 ```cpp
 std::vector<ImageMetadata> scanImage(const std::string& input_directory);
 ```
 
-Scannerul:
+The scanner:
 
-- folosește `std::filesystem::directory_iterator`;
-- nu procesează subdirectoare;
-- acceptă extensiile `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff` și `.webp`;
-- tratează extensiile fără diferență între litere mari și mici;
-- sortează căile într-o ordine deterministă;
-- apelează `parseExif()` pentru fiecare imagine;
-- returnează rezultatele într-un `std::vector<ImageMetadata>`.
+- uses `std::filesystem::directory_iterator`;
+- does not process subdirectories;
+- accepts `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff`, and `.webp` extensions;
+- treats extensions case-insensitively;
+- sorts paths in a deterministic order;
+- calls `parseExif()` for each image;
+- returns the results in a `std::vector<ImageMetadata>`.
 
-### Detectarea imaginilor generate cu AI
+### Detecting AI-generated images
 
-Este implementat detectorul C2PA în `src/ai/c2pa_detector.cpp`.
+The C2PA detector is implemented in `src/ai/c2pa_detector.cpp`.
 
-Detectorul:
+The detector:
 
-- deschide manifestul C2PA folosind `c2pa::Reader::from_asset()`;
-- citește manifestul ca JSON;
-- caută provideri și acțiuni care indică generare AI;
-- recunoaște identificatori precum `BytePlus_ModelArk`, Midjourney, DALL-E, Stable Diffusion, Firefly, ComfyUI și Ideogram;
-- păstrează indicatorii în `ai_indicators`;
-- combină rezultatul C2PA cu fallback-ul EXIF/XMP.
+- opens the C2PA manifest using `c2pa::Reader::from_asset()`;
+- reads the manifest as JSON;
+- looks for providers and actions that indicate AI generation;
+- recognizes identifiers such as `BytePlus_ModelArk`, Midjourney, DALL-E, Stable Diffusion, Firefly, ComfyUI, and Ideogram;
+- keeps the indicators in `ai_indicators`;
+- combines the C2PA result with the EXIF/XMP fallback.
 
-Verdicturile disponibile sunt:
+The available verdicts are:
 
-- `confirmed` — manifest C2PA cu indicații AI și fără erori de validare;
-- `likely` — marker AI găsit în EXIF/XMP sau manifest C2PA cu validare incompletă;
-- `not_detected` — nu există marker AI, iar imaginea are metadata coerentă de cameră;
-- `unknown` — nu există suficiente metadata pentru o concluzie.
+- `confirmed` — a C2PA manifest with AI indicators and no validation errors;
+- `likely` — an AI marker found in EXIF/XMP or a C2PA manifest with incomplete validation;
+- `not_detected` — no AI marker exists and the image has coherent camera metadata;
+- `unknown` — there is not enough metadata to reach a conclusion.
 
-Verdicturile sunt bazate pe metadata și provenance. Lipsa unui marker AI nu dovedește că imaginea este reală.
+The verdicts are based on metadata and provenance. The absence of an AI marker does not prove that the image is real.
 
-### QA per imagine
+### Per-image QA
 
-Este implementată funcția:
+The following function is implemented:
 
 ```cpp
 ImageQA computeQA(
@@ -226,64 +226,64 @@ ImageQA computeQA(
 );
 ```
 
-QA-ul per imagine:
+Per-image QA:
 
-- verifică dacă imaginea poate fi încărcată;
-- calculează brightness-ul mediu pe canalele BGR;
-- convertește imaginea în grayscale;
-- calculează sharpness-ul prin variance of Laplacian;
-- normalizează sharpness-ul într-un `blur_score` între `0` și `1`;
-- verifică GPS-ul folosind `metadata.has_valid_gps`;
-- preia verdictul AI din metadata;
-- adaugă issue-uri precum `image_unreadable`, `too_dark`, `too_blurry`, `invalid_gps`, `ai_generated` și `likely_ai_generated`;
-- calculează verdictul final `passed`.
+- checks whether the image can be loaded;
+- calculates the mean brightness across the BGR channels;
+- converts the image to grayscale;
+- calculates sharpness using the variance of Laplacian;
+- normalizes sharpness to a `blur_score` between `0` and `1`;
+- checks GPS using `metadata.has_valid_gps`;
+- takes the AI verdict from the metadata;
+- adds issues such as `image_unreadable`, `too_dark`, `too_blurry`, `invalid_gps`, `ai_generated`, and `likely_ai_generated`;
+- calculates the final `passed` verdict.
 
-O imagine trece QA numai dacă brightness-ul, blur-ul, GPS-ul și politica AI sunt acceptabile.
+An image passes QA only if brightness, blur, GPS, and the AI policy are acceptable.
 
-### Integrarea curentă în `main.cpp`
+### Current integration in `main.cpp`
 
 `main.cpp`:
 
-- parsează argumentele CLI;
-- apelează scannerul pentru folderul primit;
-- afișează numărul imaginilor găsite;
-- afișează metadata detaliată cu `--verbose`;
-- tratează erorile prin mesaje pe `stderr` și cod de ieșire nenul.
+- parses CLI arguments;
+- calls the scanner for the provided folder;
+- displays the number of images found;
+- displays detailed metadata with `--verbose`;
+- handles errors through `stderr` messages and a non-zero exit code.
 
-## Neimplementat încă
+## Not yet implemented
 
-- Tratarea tuturor namespace-urilor XMP specifice producătorilor de camere.
-- Citirea rezoluției din OpenCV ca fallback atunci când EXIF nu conține dimensiunile.
-- Calcularea pixel density.
-- Integrarea completă a rezultatelor `ImageQA` în fluxul principal și raport.
-- Analiza secvențelor.
-- Detectarea salturilor GPS.
-- Verificarea coerenței heading-ului.
-- Detectarea imaginilor duplicate.
-- Generarea raportului JSON.
-- Generarea raportului CSV.
-- Clientul HTTP Panoramax.
-- Autentificarea prin token.
-- Upload-ul imaginilor.
-- Progress bar-ul și statisticile din terminal.
-- Testele unitare.
-- Documentația finală și exemplele complete de utilizare.
+- Handling all XMP namespaces specific to camera manufacturers.
+- Reading resolution from OpenCV as a fallback when EXIF does not contain dimensions.
+- Calculating pixel density.
+- Fully integrating `ImageQA` results into the main flow and report.
+- Sequence analysis.
+- Detecting GPS jumps.
+- Checking heading consistency.
+- Detecting duplicate images.
+- Generating the JSON report.
+- Generating the CSV report.
+- Panoramax HTTP client.
+- Token authentication.
+- Image uploading.
+- Terminal progress bar and statistics.
+- Unit tests.
+- Final documentation and complete usage examples.
 
-## Pașii următori
+## Next steps
 
-### [x] Milestone 1 — Finalizat: CLI
+### [x] Milestone 1 — Completed: CLI
 
-CLI-ul a fost implementat și testat pentru help, version, input, praguri, upload, token, verbose și quiet.
+The CLI was implemented and tested for help, version, input, thresholds, uploading, token, verbose, and quiet modes.
 
-1. Verifică faptul că `args.cpp` este inclus în `add_executable()`.
-2. Compilează proiectul.
-3. Rulează `--help`.
-4. Testează lipsa argumentului `--input`.
-5. Testează un folder inexistent.
-6. Testează valori invalide pentru blur, brightness și GPS jump.
-7. Testează afișarea valorilor parse-uite în `main.cpp`.
+1. Verify that `args.cpp` is included in `add_executable()`.
+2. Compile the project.
+3. Run `--help`.
+4. Test the missing `--input` argument.
+5. Test a nonexistent folder.
+6. Test invalid values for blur, brightness, and GPS jump.
+7. Test displaying parsed values in `main.cpp`.
 
-Comenzi:
+Commands:
 
 ```bash
 cmake -S . -B build
@@ -291,143 +291,96 @@ cmake --build build
 ./build/panoramax_qa --help
 ```
 
-### [x] Milestone 2 — Finalizat: EXIF parsing pentru o singură imagine
+### [x] Milestone 2 — Completed: EXIF parsing for a single image
 
-Parserul a fost testat cu imagini fără GPS și cu o imagine de test căreia i-au fost adăugate metadata GPS cu ExifTool.
+The parser was tested with images without GPS and with a test image whose GPS metadata was added using ExifTool.
 
-1. Implementează deschiderea imaginii cu `Exiv2::ImageFactory::open()`.
-2. Apelează `readMetadata()`.
-3. Citește `ExifData`.
-4. Verifică existența tag-urilor GPS.
-5. Implementează conversia grade/minute/secunde în grade zecimale.
-6. Aplică semnul corect pentru `N`, `S`, `E` și `W`.
-7. Citește altitudinea și GPSDOP.
-8. Citește heading-ul folosind fallback între `GPSImgDirection` și `GPSTrack`.
-9. Citește timestamp-ul și dimensiunile.
-10. Testează imagini cu metadata completă și imagini fără GPS.
+1. Implement opening the image with `Exiv2::ImageFactory::open()`.
+2. Call `readMetadata()`.
+3. Read `ExifData`.
+4. Check for GPS tags.
+5. Implement conversion from degrees/minutes/seconds to decimal degrees.
+6. Apply the correct sign for `N`, `S`, `E`, and `W`.
+7. Read altitude and GPSDOP.
+8. Read the heading using fallback between `GPSImgDirection` and `GPSTrack`.
+9. Read the timestamp and dimensions.
+10. Test images with complete metadata and images without GPS.
 
-### [x] Milestone 3 — Finalizat: scanarea folderului
+### [x] Milestone 3 — Completed: folder scanning
 
-Scannerul a fost testat pe un folder cu imagini JPEG și PNG, inclusiv extensii cu litere mari.
+The scanner was tested on a folder containing JPEG and PNG images, including uppercase extensions.
 
-1. Folosește `std::filesystem` pentru parcurgerea folderului.
-2. Acceptă doar extensii de imagine suportate.
-3. Sortează imaginile într-o ordine deterministă.
-4. Apelează `parseExif()` pentru fiecare imagine.
-5. Păstrează rezultatele într-un `std::vector<ImageMetadata>`.
-6. Raportează numărul de imagini procesate și erorile.
+1. Use `std::filesystem` to traverse the folder.
+2. Accept only supported image extensions.
+3. Sort images in a deterministic order.
+4. Call `parseExif()` for each image.
+5. Keep the results in a `std::vector<ImageMetadata>`.
+6. Report the number of processed images and errors.
 
-Exemplu de structură:
+Example structure:
 
 ```cpp
 std::vector<ImageMetadata> images;
 ```
 
-### [x] Milestone 4 — Finalizat: QA per imagine
+### [x] Milestone 4 — Completed: per-image QA
 
-Au fost implementate încărcarea și verificările de bază pentru o imagine. Pixel density și integrarea în raport rămân pentru pașii următori.
+Image loading and basic checks were implemented for one image. Pixel density and report integration remain for the next steps.
 
-1. Creează `includes/qa/image_qa.hpp`.
-2. Definește structura `ImageQA`.
-3. Implementează încărcarea imaginii cu OpenCV.
-4. Calculează brightness-ul mediu.
-5. Calculează variance of Laplacian pentru sharpness.
-6. Convertește sharpness-ul într-un scor de blur clar definit.
-7. Calculează scorul GPS.
-8. Adaugă issue-uri pentru problemele detectate.
-9. Leagă pragurile din `CliArgs` de verdictul QA.
+1. Create `includes/qa/image_qa.hpp`.
+2. Define the `ImageQA` structure.
+3. Implement image loading with OpenCV.
+4. Calculate mean brightness.
+5. Calculate the variance of Laplacian for sharpness.
+6. Convert sharpness into a clearly defined blur score.
+7. Calculate the GPS score.
+8. Add issues for detected problems.
+9. Connect the thresholds from `CliArgs` to the QA verdict.
 
-### Milestone 5 — QA la nivel de secvență
+### Milestone 5 — Sequence-level QA
 
-1. Sortează imaginile după timestamp.
-2. Compară imaginile consecutive.
-3. Implementează distanța Haversine.
-4. Detectează salturile GPS.
-5. Calculează diferența de heading.
-6. Detectează heading-uri incoerente.
-7. Detectează posibile duplicate.
-8. Stochează rezultatele într-o structură `SequenceQA`.
+1. Sort images by timestamp.
+2. Compare consecutive images.
+3. Implement the Haversine distance.
+4. Detect GPS jumps.
+5. Calculate the heading difference.
+6. Detect inconsistent headings.
+7. Detect possible duplicates.
+8. Store the results in a `SequenceQA` structure.
 
-### Milestone 6 — Raport JSON
+### Milestone 6 — JSON report
 
-1. Creează `includes/report/generator.hpp`.
-2. Creează `src/report/generator.cpp`.
-3. Definește structura raportului.
-4. Adaugă sumarul global.
-5. Adaugă lista imaginilor și issue-urile lor.
-6. Adaugă rezultatele secvențelor.
-7. Scrie raportul folosind nlohmann/json.
-8. Gestionează erorile de scriere în fișier.
-9. Testează output-ul cu un parser JSON extern.
+1. Create `includes/report/generator.hpp`.
+2. Create `src/report/generator.cpp`.
+3. Define the report structure.
+4. Add the global summary.
+5. Add the list of images and their issues.
+6. Add sequence results.
+7. Write the report using nlohmann/json.
+8. Handle file-writing errors.
 
-### Milestone 7 — Integrarea API-ului Panoramax
+### Milestone 7 — Panoramax API connection
 
-1. Instalează și configurează cpr.
-2. Creează `PanoramaxClient`.
-3. Implementează citirea token-ului.
-4. Implementează construirea endpoint-urilor.
-5. Implementează crearea unui upload set.
-6. Implementează upload-ul unui fișier.
-7. Implementează finalizarea upload set-ului.
-8. Implementează verificarea statusului.
-9. Încarcă doar imaginile care au trecut QA.
-10. Gestionează timeout-uri, statusuri HTTP și retry-uri.
+1. Create an HTTP client for the Panoramax API.
+2. Create `includes/api/client.hpp`.
+3. Create `src/api/client.cpp`.
+4. Use `api_base_url` from `CliArgs` as the API base URL.
+5. Read the authentication token from `token_path`.
+6. Send the token using the authentication mechanism required by the Panoramax API.
+7. Implement connection, timeout, and request error handling.
+8. Validate HTTP status codes and report API errors clearly.
+9. Add a configurable API endpoint for testing.
+10. Ensure that API failures do not silently appear as successful requests.
 
-### Milestone 8 — Integrarea finală
+### Milestone 8 — Image upload
 
-1. Leagă toate modulele în `main.cpp`.
-2. Procesează folderul complet.
-3. Afișează progresul.
-4. Afișează statistici finale.
-5. Generează raportul indiferent dacă unele imagini eșuează.
-6. Activează upload-ul doar dacă este prezent `--upload`.
-7. Adaugă mesaje de eroare clare.
-8. Testează pe seturi mici și mari de imagini.
-9. Adaugă teste unitare pentru GPS, blur și Haversine.
-10. Actualizează README-ul.
-
-## Criteriul de MVP
-
-Proiectul poate fi considerat MVP atunci când poate:
-
-1. Primi un folder prin CLI.
-2. Parcurge imaginile din folder.
-3. Extrage GPS și timestamp din EXIF.
-4. Calculează blur și brightness.
-5. Marchează imaginile cu probleme.
-6. Generează `report.json`.
-
-Upload-ul Panoramax este o funcționalitate suplimentară și nu trebuie să blocheze demonstrația MVP-ului.
-
-## Comenzi uzuale
-
-Reconfigurare completă:
-
-```bash
-rm -rf build
-cmake -S . -B build
-```
-
-Build incremental:
-
-```bash
-cmake --build build
-```
-
-Build cu mai multe thread-uri:
-
-```bash
-cmake --build build --parallel
-```
-
-Rulare help:
-
-```bash
-./build/panoramax_qa --help
-```
-
-Rulare minimală:
-
-```bash
-./build/panoramax_qa --input ./images
-```
+1. Upload only images that passed the QA checks.
+2. Build the multipart/form-data request expected by the Panoramax API.
+3. Include the image file and the required metadata in the upload request.
+4. Upload images sequentially and preserve the deterministic scan order.
+5. Track the upload status for every image.
+6. Handle rejected images, network failures, timeouts, and partial upload results.
+7. Add retry handling for transient upload failures.
+8. Display upload progress and a final success/failure summary in the terminal.
+9. Include upload results and API responses in the JSON report.
+10. Enable the upload flow only when `--upload` is specified.

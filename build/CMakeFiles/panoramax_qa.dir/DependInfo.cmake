@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/comictor2ro/Desktop/panoramax_qa/src/image/scanner.cpp" "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/image/scanner.cpp.o.d"
   "/home/comictor2ro/Desktop/panoramax_qa/src/main.cpp" "CMakeFiles/panoramax_qa.dir/src/main.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/main.cpp.o.d"
   "/home/comictor2ro/Desktop/panoramax_qa/src/qa/image_qa.cpp" "CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o.d"
+  "/home/comictor2ro/Desktop/panoramax_qa/src/qa/sequence_qa.cpp" "CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o" "gcc" "CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/panoramax_qa.dir/src/main.cpp.o.d"
   "CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o"
   "CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o.d"
+  "CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o"
+  "CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o.d"
   "panoramax_qa"
   "panoramax_qa.pdb"
 )

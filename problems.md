@@ -1,50 +1,50 @@
-# Probleme intalnite
+# Issues encountered
 
-## 1. Namespace XMP necunoscut pentru pitch si roll
+## 1. Unknown XMP namespace for pitch and roll
 
-### Simptom
+### Symptom
 
-Parserul se oprea inainte sa citeasca metadata EXIF pentru imagini care nu aveau campurile `pitch` si `roll`. Aplicatia afisa eroarea:
+The parser stopped before reading EXIF metadata for images that did not have `pitch` and `roll` fields. The application displayed the error:
 
 ```text
 No namespace info available for XMP prefix `Camera'
 ```
 
-### Cauza
+### Cause
 
-Parserul incerca sa caute tag-urile XMP:
+The parser attempted to look up the following XMP tags:
 
 ```text
 Xmp.Camera.Pitch
 Xmp.Camera.Roll
 ```
 
-Namespace-ul `Camera` nu era inregistrat in Exiv2. Crearea cheii XMP arunca o exceptie, iar executia parasea functia inainte de parsarea GPS din EXIF.
+The `Camera` namespace was not registered in Exiv2. Creating the XMP key threw an exception, and execution left the function before GPS data could be parsed from EXIF.
 
-### Rezolvare
+### Resolution
 
-Parsarea XMP a fost tratata ca optionala si izolata intr-un bloc `try/catch`. Daca namespace-ul sau tag-urile XMP lipsesc, parsarea EXIF continua normal.
+XMP parsing was treated as optional and isolated in a `try/catch` block. If the XMP namespace or tags are missing, EXIF parsing continues normally.
 
-Lipsa valorilor `pitch` si `roll` nu trebuie sa invalideze imaginea. Aceste campuri raman la valorile implicite atunci cand nu sunt disponibile.
+Missing `pitch` and `roll` values must not invalidate the image. These fields retain their default values when they are unavailable.
 
-## 2. Tool-urile traditionale nu expun metadata C2PA/CBOR
+## 2. Traditional tools do not expose C2PA/CBOR metadata
 
-### Simptom
+### Symptom
 
-`exiv2 -pa` afisa metadata EXIF si XMP, dar nu permitea citirea directa a unor valori precum:
+`exiv2 -pa` displayed EXIF and XMP metadata, but it could not directly read values such as:
 
 ```text
 [CBOR] ActionsSoftwareAgentName: BytePlus_ModelArk
 ```
 
-Detectorul bazat doar pe `Exif.Image.Software` si `Xmp.xmp.CreatorTool` nu putea identifica acest marker.
+A detector based only on `Exif.Image.Software` and `Xmp.xmp.CreatorTool` could not identify this marker.
 
-### Cauza
+### Cause
 
-C2PA foloseste manifesturi si date JUMBF/CBOR pentru provenance. Aceste date nu sunt echivalente cu tag-urile EXIF sau XMP, iar versiunea locala Exiv2 nu oferea un API C++ pentru citirea lor.
+C2PA uses manifests and JUMBF/CBOR data for provenance. This data is not equivalent to EXIF or XMP tags, and the local version of Exiv2 did not provide a C++ API for reading it.
 
-### Rezolvare
+### Resolution
 
-Proiectul foloseste biblioteca `c2pa-cpp` pentru a deschide manifestul cu `c2pa::Reader::from_asset()`, a citi manifestul ca JSON si a cauta indicatorii C2PA separat de parserul EXIF.
+The project uses the `c2pa-cpp` library to open the manifest with `c2pa::Reader::from_asset()`, read the manifest as JSON, and search for C2PA indicators separately from the EXIF parser.
 
-`detectAiMetadata()` ramane un fallback pentru EXIF/XMP. C2PA este tratat intr-un detector separat, deoarece necesita citirea si validarea manifestului, nu doar cautarea unor tag-uri metadata.
+`detectAiMetadata()` remains a fallback for EXIF/XMP. C2PA is handled by a separate detector because it requires reading and validating the manifest, not just searching metadata tags.

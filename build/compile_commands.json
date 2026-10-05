@@ -36,6 +36,12 @@
   "output": "CMakeFiles/panoramax_qa.dir/src/qa/image_qa.cpp.o"
 },
 {
+  "directory": "/home/comictor2ro/Desktop/panoramax_qa/build",
+  "command": "/usr/bin/c++  -I/home/comictor2ro/Desktop/panoramax_qa/includes -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/json-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -isystem /usr/include/opencv4 -std=c++23 -o CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/src/qa/sequence_qa.cpp",
+  "file": "/home/comictor2ro/Desktop/panoramax_qa/src/qa/sequence_qa.cpp",
+  "output": "CMakeFiles/panoramax_qa.dir/src/qa/sequence_qa.cpp.o"
+},
+{
   "directory": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/src",
   "command": "/usr/bin/c++ -DC2PA_DLL -Dc2pa_cpp_EXPORTS -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_prebuilt-src/include -I/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-src/src -std=c++17 -fPIC -Wall -Wextra -Werror -Wformat=2 -Wformat-security -Wnull-dereference -Wstack-protector -fstack-protector-strong -fPIC -Wno-deprecated-declarations -D_FORTIFY_SOURCE=2 -o CMakeFiles/c2pa_cpp.dir/c2pa.cpp.o -c /home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/src/c2pa.cpp",
   "file": "/home/comictor2ro/Desktop/panoramax_qa/build/_deps/c2pa_cpp-build/src/c2pa.cpp",

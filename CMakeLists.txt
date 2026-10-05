@@ -29,6 +29,7 @@ add_executable(panoramax_qa
     src/image/scanner.cpp
     src/ai/c2pa_detector.cpp
     src/qa/image_qa.cpp
+    src/qa/sequence_qa.cpp
 )
 target_link_libraries(panoramax_qa
     PRIVATE
