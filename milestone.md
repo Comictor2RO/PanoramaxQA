@@ -338,7 +338,18 @@ Image loading and basic checks were implemented for one image. Pixel density and
 8. Add issues for detected problems.
 9. Connect the thresholds from `CliArgs` to the QA verdict.
 
-### Milestone 5 — Sequence-level QA
+### Milestone 5 — JSON report
+
+1. Create `includes/report/generator.hpp`.
+2. Create `src/report/generator.cpp`.
+3. Define the report structure.
+4. Add the global summary.
+5. Add the list of images and their issues.
+6. Add sequence results.
+7. Write the report using nlohmann/json.
+8. Handle file-writing errors.
+
+### Milestone 6 — Sequence-level QA
 
 1. Sort images by timestamp.
 2. Compare consecutive images.
@@ -349,7 +360,7 @@ Image loading and basic checks were implemented for one image. Pixel density and
 7. Detect possible duplicates.
 8. Store the results in a `SequenceQA` structure.
 
-### Milestone 6 — Face detection with OpenCV and Haar cascade
+### Milestone 7 — Face detection with OpenCV and Haar cascade
 
 1. Add the OpenCV object-detection components required for face detection.
 2. Load a configurable Haar cascade classifier.
@@ -359,17 +370,6 @@ Image loading and basic checks were implemented for one image. Pixel density and
 6. Add a configurable policy for images containing faces.
 7. Add a clear QA issue when a face is detected.
 8. Test detection on images with faces, without faces, and with different image sizes.
-
-### Milestone 7 — JSON report
-
-1. Create `includes/report/generator.hpp`.
-2. Create `src/report/generator.cpp`.
-3. Define the report structure.
-4. Add the global summary.
-5. Add the list of images and their issues.
-6. Add sequence results.
-7. Write the report using nlohmann/json.
-8. Handle file-writing errors.
 
 ### Milestone 8 — Panoramax API connection
 
