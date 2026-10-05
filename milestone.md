@@ -260,6 +260,7 @@ An image passes QA only if brightness, blur, GPS, and the AI policy are acceptab
 - Detecting GPS jumps.
 - Checking heading consistency.
 - Detecting duplicate images.
+- Detecting faces with OpenCV and a Haar cascade.
 - Generating the JSON report.
 - Generating the CSV report.
 - Panoramax HTTP client.
@@ -348,7 +349,18 @@ Image loading and basic checks were implemented for one image. Pixel density and
 7. Detect possible duplicates.
 8. Store the results in a `SequenceQA` structure.
 
-### Milestone 6 — JSON report
+### Milestone 6 — Face detection with OpenCV and Haar cascade
+
+1. Add the OpenCV object-detection components required for face detection.
+2. Load a configurable Haar cascade classifier.
+3. Convert each image to grayscale and equalize the histogram when needed.
+4. Detect faces using `cv::CascadeClassifier::detectMultiScale()`.
+5. Store the number and bounding boxes of detected faces in the image QA result.
+6. Add a configurable policy for images containing faces.
+7. Add a clear QA issue when a face is detected.
+8. Test detection on images with faces, without faces, and with different image sizes.
+
+### Milestone 7 — JSON report
 
 1. Create `includes/report/generator.hpp`.
 2. Create `src/report/generator.cpp`.
@@ -359,7 +371,7 @@ Image loading and basic checks were implemented for one image. Pixel density and
 7. Write the report using nlohmann/json.
 8. Handle file-writing errors.
 
-### Milestone 7 — Panoramax API connection
+### Milestone 8 — Panoramax API connection
 
 1. Create an HTTP client for the Panoramax API.
 2. Create `includes/api/client.hpp`.
@@ -372,7 +384,7 @@ Image loading and basic checks were implemented for one image. Pixel density and
 9. Add a configurable API endpoint for testing.
 10. Ensure that API failures do not silently appear as successful requests.
 
-### Milestone 8 — Image upload
+### Milestone 9 — Image upload
 
 1. Upload only images that passed the QA checks.
 2. Build the multipart/form-data request expected by the Panoramax API.

@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-e44f760b2443f4f894d4d51e623267fc _deps/c2pa_cpp-build/src/c2pa.cpp
